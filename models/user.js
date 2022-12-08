@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+
+
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: { type: String, required: true, lowercase: true, unique: true },
@@ -17,7 +19,6 @@ if(err)
 return next(err)
 this.password = hash
 return next()
-
 })
 })
 

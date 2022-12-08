@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 app.use(express.json())
 app.use(morgan('dev'))
 mongoose.set('strictQuery', true)
-mongoose.connect('mongodb://localhost:27017/dogtracker', ()=>{  
+mongoose.connect(`mongodb+srv://pauldamico:${process.env.MONGOSECRET}@cluster0.hhpaaeu.mongodb.net/dogtracker?retryWrites=true&w=majority`, ()=>{  
     console.log("Connected to DB")
 })
 
