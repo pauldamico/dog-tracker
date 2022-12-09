@@ -11,7 +11,7 @@ export default function Auth(props) {
     const { name, value } = event.target;
     setUserInfo((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   const updateUserHandler = (event) => {
     event.preventDefault();
     {
