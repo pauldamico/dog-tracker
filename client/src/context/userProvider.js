@@ -1,11 +1,14 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useContext, useEffect } from "react";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom'
+import { TrackerContext } from "./trackerProvider";
 export const UserContext = createContext();
 export function UserContextProvider(props) {
-  const initUser = { user:JSON.parse(localStorage.getItem("user"))||{username: "", password: "", _id:""} , token:localStorage.getItem("token")|| ""};
-  const [currentUser, setcurrentUser] = useState(initUser);
-const {_id, username} = currentUser.user
+const {getUserProfile} = useContext(TrackerContext)
+
+  const initUser = { user:JSON.parse(localStorage.getItem("user"))||{} , token:localStorage.getItem("token")|| ""};
+  const [currentUser, setCurrentUser] = useState(initUser);
+const {_id:userId, username} = currentUser.user
 const {token} = currentUser
 const navigate = useNavigate()
 
@@ -15,27 +18,37 @@ const navigate = useNavigate()
     axios
       .post("/auth/signup", newUser)
       .then((res) => {
+        const {user, token} = res.data
         localStorage.setItem("user", JSON.stringify(res.data.user))
         localStorage.setItem("token", res.data.token)
-        setcurrentUser(prev=>res.data)})
-      .catch((err) => console.log(err));
-      console.log(currentUser);
+        setCurrentUser(prev=>({...prev,user, token }))})       
+             .catch((err) => console.log(err));
+             {token && getUserProfile()    } 
+    
   }
   function login(userInfo) {
     axios
       .post("/auth/login", userInfo)
       .then((res) => {
+        const {user, token} = res.data
+     
         localStorage.setItem("user", JSON.stringify(res.data.user))
         localStorage.setItem("token", res.data.token)
-        setcurrentUser(prev=>res.data)
-        navigate('/profile')
-      
-      })
-      .catch((err) => console.log(err));
+        setCurrentUser(prev=>({...prev,token, user}))       
+        navigate('/profile')       
+      })      
+      .catch((err) => console.log(err));  
+
+      {token && getUserProfile()    } 
   }
+ 
+useEffect(()=>{
+{token && getUserProfile()}
+}, [])
+
 
   return (
-    <UserContext.Provider value={{ username, token, signup, login }}>
+    <UserContext.Provider value={{ username, token, signup, login, userId }}>
       {props.children}
     </UserContext.Provider>
   );
