@@ -23,7 +23,7 @@ export default function DogProfileForm(props) {
     weight,
     birthday,
     vet,
-    _id
+    _id,
   });
   console.log(_id);
 
@@ -42,13 +42,12 @@ export default function DogProfileForm(props) {
       weight: updatedProfile.weight,
       birthday: updatedProfile.birthday,
       vet: updatedProfile.vet,
-      _id: updatedProfile._id
+      _id: updatedProfile._id,
     };
     userAxios
       .put(`/api/profile/update/${_id}`, updatedInfo)
       .then((res) => submitUpdatedProfile(_id, res.data))
       .catch((err) => console.log(err));
-      
 
     //    submitUpdatedProfile(userId, updatedProfile. updatedProfile)
     //    {!dogName && addNewProfile(updatedProfile)}
