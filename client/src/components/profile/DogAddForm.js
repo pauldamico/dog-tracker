@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export default function DogAddForm(props) {
   const {
     addNewProfile,
+    addToggler,
     profile,
     username,
     userId,
@@ -36,6 +37,7 @@ export default function DogAddForm(props) {
       birthday: "",
       vet: "",
     }));
+    addToggler()
   }
 
   return (

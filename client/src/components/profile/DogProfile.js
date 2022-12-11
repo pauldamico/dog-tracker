@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../context/userProvider.js";
 import DogAddForm from "./DogAddForm.js";
-import { TrackerContext } from "../../context/trackerProvider.js";
+import { ProfileContext } from "../../context/profileProvider.js";
 import Dog from "./Dog.js";
 export default function DogProfile() {
   const { username, token, userId } = useContext(UserContext);
-  const { userAxios, profiles, submitUpdatedProfile, addNewProfile } =
-    useContext(TrackerContext);
+  const {deleteProfile, userAxios, profiles, submitUpdatedProfile, addNewProfile } =
+    useContext(ProfileContext);
   const [addToggle, setAddToggle] = useState(false);
 
   function addToggler() {
@@ -42,6 +42,7 @@ export default function DogProfile() {
             username={username}
             token={token}
             userId={userId}
+            deleteProfile={deleteProfile}
           />
         ))}
       </div>
@@ -55,6 +56,7 @@ export default function DogProfile() {
             username={username}
             token={token}
             userId={userId}
+            addToggler={addToggler}
           />
         </div>
       )}

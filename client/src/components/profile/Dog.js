@@ -3,6 +3,7 @@ import DogProfileForm from "./DogProfileForm.js";
 
 export default function Dog(props) {
   const {
+    deleteProfile,
     dogName,
     breed,
     age,
@@ -57,6 +58,7 @@ export default function Dog(props) {
             <img />
           </div>
           <button onClick={updateToggler}>Update Info</button>
+          <button onClick={()=>{deleteProfile(_id)}}>Delete</button>
         </div>
       )}
       {!updateToggled && (

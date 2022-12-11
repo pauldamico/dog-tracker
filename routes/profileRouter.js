@@ -43,6 +43,18 @@ res.send(updatedProfile)
     })
 })
 
+profileRouter.delete('/delete/:profileId', (req, res, next)=>{
+    const profieId = req.params.profileId
+Profile.findOneAndDelete({_id:profieId, user:req.auth._id}, (err, deletedItem)=>{
+if(err){
+    res.status(403)
+    return next(err)
+}
+res.send(`${profieId} has been removed`)
+
+})
+})
+
 
 
 module.exports = profileRouter
