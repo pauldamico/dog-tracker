@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import Nav from './components/Nav';
 import ProtectedRoute from './components/ProtectedRoute';
 import Auth from './components/Auth.js';
-import Tracker from './components/Tracker.js'
+import Tracker from './components/tracker/Tracker.js'
 import DogProfile from './components/profile/DogProfile.js'
 import { UserContext } from './context/userProvider';
 import {Navigate, Route, Routes} from 'react-router-dom'

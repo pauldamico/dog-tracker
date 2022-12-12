@@ -2,9 +2,11 @@ import React, { useState, createContext, useContext, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ProfileContext } from "./profileProvider";
+import { TrackerContext } from "./trackerProvider";
 export const UserContext = createContext();
 export function UserContextProvider(props) {
   const { getUserProfile } = useContext(ProfileContext);
+  const {getTrackerData} = useContext(TrackerContext)
 
   const initUser = {
     user: JSON.parse(localStorage.getItem("user")) || {},
@@ -49,7 +51,9 @@ export function UserContextProvider(props) {
 
   useEffect(() => {
     {
-      token && getUserProfile();
+      token && getUserProfile()
+      token && getTrackerData()
+    
     }
   }, []);
 
