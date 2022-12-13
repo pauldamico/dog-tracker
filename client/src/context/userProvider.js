@@ -6,7 +6,7 @@ import { TrackerContext } from "./trackerProvider";
 export const UserContext = createContext();
 export function UserContextProvider(props) {
   const { getUserProfile } = useContext(ProfileContext);
-  const {getTrackerData} = useContext(TrackerContext)
+  const {getTrackerData, addTracker} = useContext(TrackerContext)
 
   const initUser = {
     user: JSON.parse(localStorage.getItem("user")) || {},
@@ -20,6 +20,7 @@ export function UserContextProvider(props) {
   function signup(newUser) {
     axios
       .post("/auth/signup", newUser)
+      .then
       .then((res) => {
         const { user, token } = res.data;
         localStorage.setItem("user", JSON.stringify(res.data.user));
@@ -27,6 +28,7 @@ export function UserContextProvider(props) {
         setCurrentUser((prev) => ({ ...prev, user, token }));
         {
           token && getUserProfile();
+         
         }
       })
       .catch((err) => console.log(err));
@@ -40,13 +42,15 @@ export function UserContextProvider(props) {
 
         localStorage.setItem("user", JSON.stringify(res.data.user));
         localStorage.setItem("token", res.data.token);
-        setCurrentUser((prev) => ({ ...prev, user, token }));
+        setCurrentUser((prev) => ({ ...prev, user, token }));      
         navigate("/profile");
         {
           token && getUserProfile();
+        
         }
       })
       .catch((err) => console.log(err));
+      
   }
 
   useEffect(() => {

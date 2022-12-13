@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const date = new Date()
+const todaysDate = `${date.getMonth() + 1} ${date.getDate()} ${date.getFullYear()}`
 const trackerSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
-  bathroom: { am: { type: Array }, pm: { type: Array } },
-  treats: { am: { type: Array }, pm: { type: Array } },
+  bathroomAM: [String],
+  bathroomPM: [String],
+  treatsAM:[String] ,
+  treatsPM:[String] ,
   food: {
     morning: { type: Boolean },
     lunch: { type: Boolean },
@@ -15,7 +19,7 @@ const trackerSchema = new Schema({
     nextVetApt: { type: Date },
   },
   groomed: { type: String },
-  date: { type: Date, default: Date.now },
+  date: { type: String, default: todaysDate, unique:true},
 });
 
 module.exports = mongoose.model("Tracker", trackerSchema);

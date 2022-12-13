@@ -1,13 +1,7 @@
-.bathroom-am-div{
+.am-div{
   display: flex;
 }
-.bathroom-pm-div{
+.pm-div{
   display: flex;
 }
 
-.food-am-div{
-  display: flex;
-}
-.food-pm-div{
-  display: flex;
-}

@@ -2,9 +2,23 @@ const express = require('express')
 const tracker = require('../models/tracker.js')
 const trackerRouter = express.Router()
 const Tracker = require('../models/tracker.js')
-
+const date = new Date()
+const todaysDate = `${date.getMonth() + 1} ${date.getDate()} ${date.getFullYear()}`
 
 trackerRouter.post('/add', (req,res, next)=>{
+    Tracker.find({user:req.auth._id, date:todaysDate}, (err, foundItem)=>{
+   
+if(err)
+{
+    res.status(500)
+    return next(err)
+}
+if(foundItem[0]){
+    res.status(403)
+    return next(new Error("Todays tracker already exist"))
+}
+if(!foundItem[0])
+    {
     req.body.user = req.auth._id
 const newTracker = new Tracker(req.body)
 newTracker.save((err, savedItem)=>{
@@ -12,6 +26,27 @@ if(err)
 {res.status(500)
 return next(err)}
 res.send(savedItem)
+})}
+})
+})
+
+
+trackerRouter.post('/add/bathroom/:timeId', (req, res, next)=>{
+Tracker.find({user:req.auth._id, _id:req.params.timeId}, (err, foundItem)=>{
+    
+   if(err){
+    res.status(500)
+    return next(err)
+   }
+   if(foundItem){
+Tracker.findOneAndUpdate({user:req.auth._id, _id:req.params.timeId}, {$push:{bathroomAM:req.body.bathroomAM,bathroomPM:req.body.bathroomPM }}, {new:true}, (err, updatedItem)=>{
+if(err){
+res.status(500)
+return next(err)}
+res.send(updatedItem)
+})
+   }
+
 })
 })
 
@@ -35,6 +70,8 @@ res.send(updatedItem)
 
 })
 })
+
+
 
 trackerRouter.delete('/delete/:trackerId', (req, res, next)=>{
 const trackerId = req.params.trackerId

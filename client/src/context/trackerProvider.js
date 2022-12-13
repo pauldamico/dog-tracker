@@ -3,16 +3,22 @@ import {nanoid} from 'nanoid'
 import { ProfileContext } from "./profileProvider";
 export const TrackerContext = createContext()
 export  function TrackerContextProvider(props){
+    const date = new Date()
+    const todaysDate = `${date.getMonth() + 1} ${date.getDate()} ${date.getFullYear()}`
+    console.log(todaysDate)
 const {userAxios} = useContext(ProfileContext)
     const initValue =   {
-        bathroom:{am: [],pm: [] },
-       treats: {am: [],pm: []},
+        bathroomAM:[],
+        bathroomPM:[],
+       treatsAM:[], 
+       treatsPM:[],
        food: {breakfast:false, lunch: false, dinner: false},
        medical: {medicineName: "", lastMedicineDate: "", nextVetApt: ""},
-       groomed:""
+       groomed:"",
+       date:todaysDate
    }
 
-const [trackerInfo, setTrackerInfo] = useState(initValue)
+const [trackerInfo, setTrackerInfo] = useState([])
 
     function hours (){
         const times = []
@@ -22,14 +28,35 @@ const [trackerInfo, setTrackerInfo] = useState(initValue)
               return times
     }
 
-    function getTrackerData (){
-        userAxios.get('/api/tracker')
+  function addTracker (){
+    userAxios.post('/api/tracker/add')
+    .then(res=>console.log(res.data))
+    .catch(err=>console.log(err))
+  }
+
+
+    function submitBathroomTime (selectedTimes, trackerId){        
+        userAxios.post(`/api/add/bathroom/${trackerId}`, selectedTimes)
         .then(res=>console.log(res.data))
         .catch(err=>console.log(err))
+console.log(selectedTimes)
     }
 
+    function submitTreatTime (selectedTimes, trackerId){
+        userAxios.post(`/api/add/treat/${trackerId}`, selectedTimes)
+        .then(res=>console.log(res.data))
+        .catch(err=>console.log(err))
+console.log(selectedTimes)
+    }
 
-return (<TrackerContext.Provider value={{hours, getTrackerData}}>
+    function getTrackerData (){
+        userAxios.get('/api/tracker')
+        .then(res=>setTrackerInfo(prev=>[res.data]))
+        .catch(err=>console.log(err))
+    }
+console.log(trackerInfo)
+
+return (<TrackerContext.Provider value={{addTracker, hours, getTrackerData, submitBathroomTime, submitTreatTime}}>
 {props.children}
 </TrackerContext.Provider>)
 
