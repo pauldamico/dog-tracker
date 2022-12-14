@@ -71,6 +71,7 @@ export default function Dog(props) {
           userId={userId}
           updateToggler={updateToggler}
           submitUpdatedProfile={submitUpdatedProfile}
+        
         />
       )}
     </div>

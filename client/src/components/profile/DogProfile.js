@@ -26,6 +26,7 @@ export default function DogProfile() {
               username={username}
               token={token}
               userId={userId}
+              addToggler={addToggler}
             />
           </div>
         )}

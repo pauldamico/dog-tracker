@@ -33,22 +33,55 @@ res.send(savedItem)
 
 trackerRouter.post('/add/bathroom/:timeId', (req, res, next)=>{
 Tracker.find({user:req.auth._id, _id:req.params.timeId}, (err, foundItem)=>{
-    
+  
    if(err){
     res.status(500)
     return next(err)
    }
    if(foundItem){
+    Tracker.findOneAndUpdate({user:req.auth._id, _id:req.params.timeId}, {$set:{bathroomAM:[], bathroomPM:[]}}, {new:true}, (err, item)=>{
+        console.log(item)
+     
+
 Tracker.findOneAndUpdate({user:req.auth._id, _id:req.params.timeId}, {$push:{bathroomAM:req.body.bathroomAM,bathroomPM:req.body.bathroomPM }}, {new:true}, (err, updatedItem)=>{
 if(err){
 res.status(500)
 return next(err)}
-res.send(updatedItem)
+
+res.send({bathroomAM:[updatedItem.bathroomAM], bathroomPM:[updatedItem.bathroomPM]})
+})
 })
    }
 
 })
 })
+
+trackerRouter.post('/add/treat/:timeId', (req, res, next)=>{
+    Tracker.find({user:req.auth._id, _id:req.params.timeId}, (err, foundItem)=>{
+      
+       if(err){
+        res.status(500)
+        return next(err)
+       }
+       if(foundItem){
+        Tracker.findOneAndUpdate({user:req.auth._id, _id:req.params.timeId}, {$set:{treatsAM:[], treatsPM:[]}}, {new:true}, (err, item)=>{
+            console.log(item)
+         
+    
+    Tracker.findOneAndUpdate({user:req.auth._id, _id:req.params.timeId}, {$push:{treatsAM:req.body.treatsAM,treatsPM:req.body.treatsPM }}, {new:true}, (err, updatedItem)=>{
+    if(err){
+    res.status(500)
+    return next(err)}
+    
+    res.send(updatedItem)
+    })
+    })
+       }
+    
+    })
+    })
+
+
 
 trackerRouter.get('/', (req, res, next)=>{
 Tracker.find({user:req.auth._id}, (err, foundItems)=>{

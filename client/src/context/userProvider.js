@@ -1,10 +1,11 @@
-import React, { useState, createContext, useContext, useEffect } from "react";
+import React, { useState, createContext, useContext, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ProfileContext } from "./profileProvider";
 import { TrackerContext } from "./trackerProvider";
 export const UserContext = createContext();
 export function UserContextProvider(props) {
+  const count = useRef(0)
   const { getUserProfile } = useContext(ProfileContext);
   const {getTrackerData, addTracker} = useContext(TrackerContext)
 
@@ -20,15 +21,16 @@ export function UserContextProvider(props) {
   function signup(newUser) {
     axios
       .post("/auth/signup", newUser)
-      .then
       .then((res) => {
         const { user, token } = res.data;
+
         localStorage.setItem("user", JSON.stringify(res.data.user));
         localStorage.setItem("token", res.data.token);
-        setCurrentUser((prev) => ({ ...prev, user, token }));
+        setCurrentUser((prev) => ({ ...prev, user, token }));      
+        navigate("/profile");
         {
-          token && getUserProfile();
-         
+          // token && getUserProfile();
+          // token && getTrackerData()
         }
       })
       .catch((err) => console.log(err));
@@ -46,20 +48,23 @@ export function UserContextProvider(props) {
         navigate("/profile");
         {
           token && getUserProfile();
-        
+          token && getTrackerData()
         }
       })
       .catch((err) => console.log(err));
       
   }
 
-  useEffect(() => {
-    {
-      token && getUserProfile()
-      token && getTrackerData()
+  // useEffect(() => {
+  //   count.current = count.current + 1
+  //   {
     
-    }
-  }, []);
+  //     username && getUserProfile()
+  //     username && getTrackerData()
+ 
+  //   }
+  // console.log(count.current)
+  // }, [navigate]);
 
   return (
     <UserContext.Provider value={{ username, token, signup, login, userId }}>

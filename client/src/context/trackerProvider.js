@@ -5,7 +5,7 @@ export const TrackerContext = createContext()
 export  function TrackerContextProvider(props){
     const date = new Date()
     const todaysDate = `${date.getMonth() + 1} ${date.getDate()} ${date.getFullYear()}`
-    console.log(todaysDate)
+  
 const {userAxios} = useContext(ProfileContext)
     const initValue =   {
         bathroomAM:[],
@@ -20,43 +20,44 @@ const {userAxios} = useContext(ProfileContext)
 
 const [trackerInfo, setTrackerInfo] = useState([])
 
-    function hours (){
-        const times = []
-        for(let i = 1; i<13; i++){
-            times.push({time:i, selected:false, id:nanoid() })  
-                }          
-              return times
-    }
+    // function hours (){
+    //     const times = []
+    //     for(let i = 1; i<13; i++){
+    //         times.push({time:i, selected:false, id:nanoid() })  
+    //             }          
+    //           return times
+    // }
 
   function addTracker (){
     userAxios.post('/api/tracker/add')
-    .then(res=>console.log(res.data))
+    .then(res=>setTrackerInfo(prev=>[res.data]))
     .catch(err=>console.log(err))
   }
 
 
-    function submitBathroomTime (selectedTimes, trackerId){        
-        userAxios.post(`/api/add/bathroom/${trackerId}`, selectedTimes)
-        .then(res=>console.log(res.data))
-        .catch(err=>console.log(err))
-console.log(selectedTimes)
-    }
+    // function submitBathroomTime (selectedTimes, trackerId){                
+    //     // userAxios.post(`/api/tracker/add/bathroom/${trackerId}`, selectedTimes)
+    //     // .then(res=>setTrackerInfo(prev=>prev.map(tracker=>trackerId === tracker._id ? {...tracker, bathroomAM:res.data.bathroomAM[0], bathroomPM:res.data.bathroomPM[0]} : {...tracker})))
+    //     // .catch(err=>console.log(err))
 
-    function submitTreatTime (selectedTimes, trackerId){
-        userAxios.post(`/api/add/treat/${trackerId}`, selectedTimes)
-        .then(res=>console.log(res.data))
-        .catch(err=>console.log(err))
-console.log(selectedTimes)
-    }
+    // }
+
+    // function submitTreatTime (selectedTimes, trackerId){     
+    //     userAxios.post(`/api/tracker/add/treat/${trackerId}`, selectedTimes)
+    //     .then(res=>setTrackerInfo(prev=>prev.map(tracker=>trackerId === tracker._id ? {...tracker, treatsAM:res.data.treatsAM[0], treatsPM:res.data.treatsPM[0]} : {...tracker})))
+    //     .catch(err=>console.log(err))
+
+    // }
 
     function getTrackerData (){
         userAxios.get('/api/tracker')
-        .then(res=>setTrackerInfo(prev=>[res.data]))
+        .then(res=>setTrackerInfo(prev=>[...res.data]))
         .catch(err=>console.log(err))
+        console.log(trackerInfo)
     }
-console.log(trackerInfo)
 
-return (<TrackerContext.Provider value={{addTracker, hours, getTrackerData, submitBathroomTime, submitTreatTime}}>
+
+return (<TrackerContext.Provider value={{trackerInfo, addTracker, getTrackerData}}>
 {props.children}
 </TrackerContext.Provider>)
 

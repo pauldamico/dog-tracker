@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Tracker, TrackerContext } from "../../context/trackerProvider";
 
 export default function DogAddForm(props) {
+  const {getTrackerData} = useContext(TrackerContext)
   const {
+ 
     addNewProfile,
     addToggler,
     profile,
@@ -37,7 +40,9 @@ export default function DogAddForm(props) {
       birthday: "",
       vet: "",
     }));
-    addToggler()
+    // getTrackerData()
+    // addToggler()
+
   }
 
   return (

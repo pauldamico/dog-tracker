@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import Nav from './components/Nav';
 import ProtectedRoute from './components/ProtectedRoute';
 import Auth from './components/Auth.js';
-import Tracker from './components/tracker/Tracker.js'
+import TrackerList from './components/tracker/TrackerList.js'
 import DogProfile from './components/profile/DogProfile.js'
 import { UserContext } from './context/userProvider';
 import {Navigate, Route, Routes} from 'react-router-dom'
@@ -24,7 +24,7 @@ const {token} = useContext(UserContext)
   <Route path ='/' element={token ? <Navigate to='/profile'/> : <Navigate to='/login'/>}/>
 <Route path='/login' element={<Auth/>}/>
 <Route path='/profile' element={<ProtectedRoute token={token} loc="/"><DogProfile/></ProtectedRoute>}/>
-<Route path='/tracker' element={<ProtectedRoute token={token} loc="/"><Tracker/></ProtectedRoute>}/>
+<Route path='/tracker' element={<ProtectedRoute token={token} loc="/"><TrackerList/></ProtectedRoute>}/>
 
 </Routes>
 
