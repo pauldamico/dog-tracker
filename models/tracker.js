@@ -6,213 +6,450 @@ const todaysDate = `${
 } ${date.getDate()} ${date.getFullYear()}`;
 const trackerSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
-  
-  bathroomAM: {
-    1: {
-      number: { type: Number, default: 1 },
-      selected: { type: Boolean, default:false },
-    },
-    2: {
-      number: { type: Number, default:2},
-      selected: { type: Boolean, default:false },
-    },
-    3: {
-      number: { type: Number, default: 3 },
-      selected: { type: Boolean, default:false },
-    },
-    4: {
-      number: { type: Number, default: 4 },
-      selected: { type: Boolean, default:false },
-    },
-    5: {
-      number: { type: Number, default: 5 },
-      selected: { type: Boolean, default:false },
-    },
-    6: {
-      number: { type: Number, default: 6 },
-      selected: { type: Boolean, default:false },
-    },
-    7: {
-      number: { type: Number, default: 7 },
-      selected: { type: Boolean, default:false },
-    },
-    8: {
-      number: { type: Number, default: 8 },
-      selected: { type: Boolean, default:false },
-    },
-    9: {
-      number: { type: Number, default: 9 },
-      selected: { type: Boolean, default:false },
-    },
-    10: {
-      number: { type: Number, default: 10 },
-      selected: { type: Boolean, default:false },
-    },
-    11: {
-      number: { type: Number, default: 11 },
-      selected: { type: Boolean, default:false },
-    },
-    12: {
-      number: { type: Number, default: 12 },
-      selected: { type: Boolean, default:false },
-    },
-  },
 
-  bathroomPM: {
-    1: {
-      number: { type: Number, default: 1 },
-      selected: { type: Boolean, default:false },
-    },
-    2: {
-      number: { type: Number, default: 2 },
-      selected: { type: Boolean, default:false },
-    },
-    3: {
-      number: { type: Number, default: 3 },
-      selected: { type: Boolean, default:false },
-    },
-    4: {
-      number: { type: Number, default: 4 },
-      selected: { type: Boolean, default:false },
-    },
-    5: {
-      number: { type: Number, default: 5 },
-      selected: { type: Boolean, default:false },
-    },
-    6: {
-      number: { type: Number, default: 6 },
-      selected: { type: Boolean, default:false },
-    },
-    7: {
-      number: { type: Number, default: 7 },
-      selected: { type: Boolean, default:false },
-    },
-    8: {
-      number: { type: Number, default: 8},
-      selected: { type: Boolean, default:false },
-    },
-    9: {
-      number: { type: Number, default: 9},
-      selected: { type: Boolean, default:false },
-    },
-    10: {
-      number: { type: Number, default: 10 },
-      selected: { type: Boolean, default:false },
-    },
-    11: {
-      number: { type: Number, default: 11 },
-      selected: { type: Boolean, default:false },
-    },
-    12: {
-      number: { type: Number, default: 12 },
-      selected: { type: Boolean, default:false },
-    },
-  },
-  treatsAM: {
-    1: {
-      number: { type: Number, default: 1 },
-      selected: { type: Boolean, default:false },
-    },
-    2: {
-      number: { type: Number, default: 2 },
-      selected: { type: Boolean, default:false },
-    },
-    3: {
-      number: { type: Number, default: 3 },
-      selected: { type: Boolean, default:false },
-    },
-    4: {
-      number: { type: Number, default: 4 },
-      selected: { type: Boolean, default:false },
-    },
-    5: {
-      number: { type: Number, default: 5 },
-      selected: { type: Boolean, default:false },
-    },
-    6: {
-      number: { type: Number, default: 6 },
-      selected: { type: Boolean, default:false },
-    },
-    7: {
-      number: { type: Number, default: 7 },
-      selected: { type: Boolean, default:false },
-    },
-    8: {
-      number: { type: Number, default: 8 },
-      selected: { type: Boolean, default:false },
-    },
-    9: {
-      number: { type: Number, default: 9 },
-      selected: { type: Boolean, default:false },
-    },
-    10: {
-      number: { type: Number, default: 10 },
-      selected: { type: Boolean, default:false },
-    },
-    11: {
-      number: { type: Number, default: 11 },
-      selected: { type: Boolean, default:false },
-    },
-    12: {
-      number: { type: Number, default: 12 },
-      selected: { type: Boolean, default:false },
-    },
-  },
+ 
+  bathroomAM: [
+    {n: {
+        type: String,
+        default:"1",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
+      {n: {
+        type: String,
+        default:"2",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
+      {n: {
+        type: String,
+        default:"3",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
+      {n: {
+        type: String,
+        default:"4",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
+      {n: {
+        type: String,
+        default:"5",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
+      {n: {
+        type: String,
+        default:"6",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
+      {n: {
+        type: String,
+        default:"7",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
+      {n: {
+        type: String,
+        default:"8",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
+      {n: {
+        type: String,
+        default:"9",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
+      {n: {
+        type: String,
+        default:"10",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
+      {n: {
+        type: String,
+        default:"11",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
+      {n: {
+        type: String,
+        default:"12",
+        required:true        
+      },
+      selected: {
+        type:Boolean,
+        default:false        
+      }},
 
-  treatsPM: {
-    1: {
-      number: { type: Number, default: 1 },
-      selected: { type: Boolean, default:false },
-    },
-    2: {
-      number: { type: Number, default: 2 },
-      selected: { type: Boolean, default:false },
-    },
-    3: {
-      number: { type: Number, default: 3 },
-      selected: { type: Boolean, default:false },
-    },
-    4: {
-      number: { type: Number, default: 4 },
-      selected: { type: Boolean, default:false },
-    },
-    5: {
-      number: { type: Number, default: 5 },
-      selected: { type: Boolean, default:false },
-    },
-    6: {
-      number: { type: Number, default: 6 },
-      selected: { type: Boolean, default:false },
-    },
-    7: {
-      number: { type: Number, default: 7 },
-      selected: { type: Boolean, default:false },
-    },
-    8: {
-      number: { type: Number, default: 8 },
-      selected: { type: Boolean, default:false },
-    },
-    9: {
-      number: { type: Number, default: 9 },
-      selected: { type: Boolean, default:false },
-    },
-    10: {
-      number: { type: Number, default: 10 },
-      selected: { type: Boolean, default:false },
-    },
-    11: {
-      number: { type: Number, default: 11 },
-      selected: { type: Boolean, default:false },
-    },
-    12: {
-      number: { type: Number, default: 12 },
-      selected: { type: Boolean, default:false },
-    },
+
+  ],
+
+  bathroomPM: [ {n: {
+    type: String,
+    default:"1",
+    required:true        
   },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"2",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"3",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"4",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"5",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"6",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"7",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"8",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"9",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"10",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"11",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"12",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }}],
+  treatsAM: [ {n: {
+    type: String,
+    default:"1",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"2",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"3",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"4",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"5",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"6",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"7",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"8",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"9",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"10",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"11",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"12",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }}],
+
+  treatsPM: [ {n: {
+    type: String,
+    default:"1",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"2",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"3",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"4",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"5",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"6",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"7",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"8",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"9",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"10",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"11",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }},
+  {n: {
+    type: String,
+    default:"12",
+    required:true        
+  },
+  selected: {
+    type:Boolean,
+    default:false        
+  }}],
   food: {
-    morning: { type: Boolean, default:false },
-    lunch: { type: Boolean,default:false },
-    dinner: { type: Boolean, default:false },
+    morning: { type: Boolean },
+    lunch: { type: Boolean, default: false },
+    dinner: { type: Boolean },
   },
   medical: {
     medicineName: { type: String },
@@ -220,7 +457,7 @@ const trackerSchema = new Schema({
     nextVetApt: { type: Date },
   },
   groomed: { type: String },
-  date: { type: String, default: todaysDate},
+  date: { type: String, default: todaysDate },
 });
 
 module.exports = mongoose.model("Tracker", trackerSchema);

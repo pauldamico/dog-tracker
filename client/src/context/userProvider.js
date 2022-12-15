@@ -48,6 +48,7 @@ export function UserContextProvider(props) {
         navigate("/profile");
         {
           token && getUserProfile();
+          token && addTracker()
           token && getTrackerData()
         }
       })
@@ -55,16 +56,19 @@ export function UserContextProvider(props) {
       
   }
 
-  // useEffect(() => {
-  //   count.current = count.current + 1
-  //   {
+
+
+  useEffect(() => {
+    count.current = count.current + 1
+    {
     
-  //     username && getUserProfile()
-  //     username && getTrackerData()
+      username && getUserProfile()
+      token && addTracker()
+      token && getTrackerData()
  
-  //   }
-  // console.log(count.current)
-  // }, [navigate]);
+    }
+  console.log(count.current)
+  }, [navigate]);
 
   return (
     <UserContext.Provider value={{ username, token, signup, login, userId }}>

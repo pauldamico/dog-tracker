@@ -1,9 +1,20 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
+import Time from "./Time";
+import Treats from "./Treats";
+import Bathroom from "./Bathroom";
 import { TrackerContext } from "../../context/trackerProvider";
 
+
+
 export default function Tracker(props) {
+
+
+
   const { _id, bathroomAM, bathroomPM, treatsAM, treatsPM, food } = props;
-  const {} = useContext(TrackerContext);
+  const {updateSelectedTime} = useContext(TrackerContext);
+
+///fix this
+
 
 
   return (
@@ -11,70 +22,28 @@ export default function Tracker(props) {
       <div>
         <div>
           <h1>Took dog out?</h1>
-          <div>
-            <h5>AM</h5>
-            <button>{bathroomAM[1].number}</button>
-            <button>{bathroomAM[2].number}</button>
-            <button>{bathroomAM[3].number}</button>
-            <button>{bathroomAM[4].number}</button>
-            <button>{bathroomAM[5].number}</button>
-            <button>{bathroomAM[6].number}</button>
-            <button>{bathroomAM[7].number}</button>
-            <button>{bathroomAM[8].number}</button>
-            <button>{bathroomAM[9].number}</button>
-            <button>{bathroomAM[10].number}</button>
-            <button>{bathroomAM[11].number}</button>
-            <button>{bathroomAM[12].number}</button>
+          <section>AM</section> 
+          <div className="time-div">        
+          
+          {bathroomAM.map(item=>(<Time name ="updateTimeBathAM" updateSelectedTime={updateSelectedTime} key={item._id} {...item}/>))}
           </div>
-          <div>
-            <h5>PM</h5>
-            <button>{bathroomPM[1].number}</button>
-            <button>{bathroomPM[2].number}</button>
-            <button>{bathroomPM[3].number}</button>
-            <button>{bathroomPM[4].number}</button>
-            <button>{bathroomPM[5].number}</button>
-            <button>{bathroomPM[6].number}</button>
-            <button>{bathroomPM[7].number}</button>
-            <button>{bathroomPM[8].number}</button>
-            <button>{bathroomPM[9].number}</button>
-            <button>{bathroomPM[10].number}</button>
-            <button>{bathroomPM[11].number}</button>
-            <button>{bathroomPM[12].number}</button>
+          <section>PM</section>
+          <div className="time-div">  
+            
+            {bathroomPM.map(item=>(<Time name ="updateTimeBathPM" updateSelectedTime={updateSelectedTime} key={item._id} {...item}/>))}
           </div>
           {/* <TakeDogOut submitTime={submitBathroomTime} hours={hours} trackerId={_id}/> */}
         </div>
         <h1>Fed dog?</h1>
         <button>Morning</button><button>Lunch</button><button>Dinner</button>
         <h1>Last time dog had a treat?</h1>
-        <div>
-            <h5>AM</h5>
-            <button>{treatsAM[1].number}</button>
-            <button>{treatsAM[2].number}</button>
-            <button>{treatsAM[3].number}</button>
-            <button>{treatsAM[4].number}</button>
-            <button>{treatsAM[5].number}</button>
-            <button>{treatsAM[6].number}</button>
-            <button>{treatsAM[7].number}</button>
-            <button>{treatsAM[8].number}</button>
-            <button>{treatsAM[9].number}</button>
-            <button>{treatsAM[10].number}</button>
-            <button>{treatsAM[11].number}</button>
-            <button>{treatsAM[12].number}</button>
+        <section>AM</section>
+        <div className="time-div">              
+            {treatsAM.map(item=>(<Time name="updateTimeTreatsAM" updateSelectedTime={updateSelectedTime} key={item._id} {...item}/>))}
           </div>
-          <div>
-            <h5>PM</h5>
-            <button>{treatsPM[1].number}</button>
-            <button>{treatsPM[2].number}</button>
-            <button>{treatsPM[3].number}</button>
-            <button>{treatsPM[4].number}</button>
-            <button>{treatsPM[5].number}</button>
-            <button>{treatsPM[6].number}</button>
-            <button>{treatsPM[7].number}</button>
-            <button>{treatsPM[8].number}</button>
-            <button>{treatsPM[9].number}</button>
-            <button>{treatsPM[10].number}</button>
-            <button>{treatsPM[11].number}</button>
-            <button>{treatsPM[12].number}</button>
+          <section>PM</section>
+          <div className="time-div">            
+            {treatsPM.map(item=>(<Time name="updateTimeTreatsPM" updateSelectedTime={updateSelectedTime} key={item._id} {...item}/>))}
           </div>
         {/* <GiveDogTreat submitTime={submitTreatTime} hours={hours} trackerId={_id}/> */}
         <h1>Medical info?</h1>
@@ -83,3 +52,9 @@ export default function Tracker(props) {
     </div>
   );
 }
+
+
+// const bathRoomAMArray = Object.values(bathroomAM)
+// const bathRoomPMArray = Object.values(bathroomPM)
+// const treatsAMArray = Object.values(bathroomAM)
+// const treatsPMArray = Object.values(bathroomPM)

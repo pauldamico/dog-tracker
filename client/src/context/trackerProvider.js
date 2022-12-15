@@ -8,10 +8,10 @@ export  function TrackerContextProvider(props){
   
 const {userAxios} = useContext(ProfileContext)
     const initValue =   {
-        bathroomAM:[],
-        bathroomPM:[],
-       treatsAM:[], 
-       treatsPM:[],
+        bathroomAM:[{n:1},{n:2},{n:3},{n:4},{n:5},{n:6},{n:7},{n:8}, {n:9}, {n:10}, {n:11}, {n:12}],
+        bathroomPM:[{n:1},{n:2},{n:3},{n:4},{n:5},{n:6},{n:7},{n:8}, {n:9}, {n:10}, {n:11}, {n:12}],
+       treatsAM:[{n:1},{n:2},{n:3},{n:4},{n:5},{n:6},{n:7},{n:8}, {n:9}, {n:10}, {n:11}, {n:12}], 
+       treatsPM:[{n:1},{n:2},{n:3},{n:4},{n:5},{n:6},{n:7},{n:8}, {n:9}, {n:10}, {n:11}, {n:12}],
        food: {breakfast:false, lunch: false, dinner: false},
        medical: {medicineName: "", lastMedicineDate: "", nextVetApt: ""},
        groomed:"",
@@ -29,9 +29,17 @@ const [trackerInfo, setTrackerInfo] = useState([])
     // }
 
   function addTracker (){
-    userAxios.post('/api/tracker/add')
+    userAxios.post('/api/tracker/add', initValue)
     .then(res=>setTrackerInfo(prev=>[res.data]))
+    .catch(err=>()=>{})
+ 
+  }
+
+  function updateSelectedTime (timeId, selected, name){   
+    userAxios.put(`/api/tracker/${name}/${timeId}`, {selected})
+    .then(res=>console.log(res.data))
     .catch(err=>console.log(err))
+   console.log(timeId)
   }
 
 
@@ -51,13 +59,13 @@ const [trackerInfo, setTrackerInfo] = useState([])
 
     function getTrackerData (){
         userAxios.get('/api/tracker')
-        .then(res=>setTrackerInfo(prev=>[...res.data]))
+        .then(res=>setTrackerInfo(prev=>res.data))
         .catch(err=>console.log(err))
-        console.log(trackerInfo)
+        
     }
 
 
-return (<TrackerContext.Provider value={{trackerInfo, addTracker, getTrackerData}}>
+return (<TrackerContext.Provider value={{updateSelectedTime, trackerInfo, addTracker, getTrackerData}}>
 {props.children}
 </TrackerContext.Provider>)
 
