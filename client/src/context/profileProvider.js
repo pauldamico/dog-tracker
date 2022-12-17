@@ -20,11 +20,12 @@ export function ProfileContextProvider(props) {
       prev.map((profile) =>
         profile._id === id
           ? {
-              ...profile,       
+              ...profile, 
+              dogName:data.dogName,      
               age: data.age,
               birthday: data.birthday,
-              breed: data.goldendoodle,
-              vet: data.test,
+              breed: data.breed,
+              vet: data.vet,
               weight: data.weight
             
             }

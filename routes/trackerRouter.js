@@ -1,6 +1,6 @@
 const express = require("express");
-const Bathroom = require("../models/bathroom.js");
-const Treats = require("../models/treats.js");
+// const Bathroom = require("../models/bathroom.js");
+// const Treats = require("../models/treats.js");
 const trackerRouter = express.Router();
 const Tracker = require("../models/tracker.js");
 const date = new Date();
@@ -10,6 +10,7 @@ const todaysDate = `${
 
 trackerRouter.post("/add", (req, res, next) => {
   Tracker.find({ user: req.auth._id, date: todaysDate }, (err, foundItem) => {
+    console.log(foundItem)
     if (err) {
       res.status(500);
       return next(err);

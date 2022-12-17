@@ -25,12 +25,13 @@ export default function DogProfileForm(props) {
     vet,
     _id,
   });
-  console.log(_id);
+ 
 
   function updateChangeHandler(event) {
     const { name, value } = event.target;
     setUpdatedProfile((prev) => ({ ...prev, [name]: value }));
-    console.log(updatedProfile);
+    console.log(updatedProfile)
+   
   }
 
   function updateSubmitHandler(event) {
@@ -44,6 +45,7 @@ export default function DogProfileForm(props) {
       vet: updatedProfile.vet,
       _id: updatedProfile._id,
     };
+  
     userAxios
       .put(`/api/profile/update/${_id}`, updatedInfo)
       .then((res) => submitUpdatedProfile(_id, res.data))

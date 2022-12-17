@@ -15,7 +15,7 @@ export default function DogAddForm(props) {
     _id,
   } = props;
 
-  const [updatedNewProfile, setNewUpdatedProfile] = useState({
+  const [updatedNewProfile, setUpdatedNewProfile] = useState({
     dogName: "",
     breed: "",
     age: "",
@@ -26,13 +26,14 @@ export default function DogAddForm(props) {
 
   function updateChangeHandler(event) {
     const { name, value } = event.target;
-    setNewUpdatedProfile((prev) => ({ ...prev, [name]: value }));
+    setUpdatedNewProfile((prev) => ({ ...prev, [name]: value }));
+
   }
 
   function updateSubmitHandler(event) {
     event.preventDefault();
     addNewProfile(updatedNewProfile);
-    setNewUpdatedProfile((prev) => ({
+    setUpdatedNewProfile((prev) => ({
       dogName: "",
       breed: "",
       age: "",

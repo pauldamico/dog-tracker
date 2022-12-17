@@ -7,448 +7,56 @@ const todaysDate = `${
 const trackerSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
 
- 
   bathroomAM: [
-    {n: {
+    {
+      n: {
         type: String,
-        default:"1",
-        required:true        
+        required: true,
       },
       selected: {
-        type:Boolean,
-        default:false        
-      }},
-      {n: {
-        type: String,
-        default:"2",
-        required:true        
+        type: Boolean,
+        default: false,
       },
-      selected: {
-        type:Boolean,
-        default:false        
-      }},
-      {n: {
-        type: String,
-        default:"3",
-        required:true        
-      },
-      selected: {
-        type:Boolean,
-        default:false        
-      }},
-      {n: {
-        type: String,
-        default:"4",
-        required:true        
-      },
-      selected: {
-        type:Boolean,
-        default:false        
-      }},
-      {n: {
-        type: String,
-        default:"5",
-        required:true        
-      },
-      selected: {
-        type:Boolean,
-        default:false        
-      }},
-      {n: {
-        type: String,
-        default:"6",
-        required:true        
-      },
-      selected: {
-        type:Boolean,
-        default:false        
-      }},
-      {n: {
-        type: String,
-        default:"7",
-        required:true        
-      },
-      selected: {
-        type:Boolean,
-        default:false        
-      }},
-      {n: {
-        type: String,
-        default:"8",
-        required:true        
-      },
-      selected: {
-        type:Boolean,
-        default:false        
-      }},
-      {n: {
-        type: String,
-        default:"9",
-        required:true        
-      },
-      selected: {
-        type:Boolean,
-        default:false        
-      }},
-      {n: {
-        type: String,
-        default:"10",
-        required:true        
-      },
-      selected: {
-        type:Boolean,
-        default:false        
-      }},
-      {n: {
-        type: String,
-        default:"11",
-        required:true        
-      },
-      selected: {
-        type:Boolean,
-        default:false        
-      }},
-      {n: {
-        type: String,
-        default:"12",
-        required:true        
-      },
-      selected: {
-        type:Boolean,
-        default:false        
-      }},
-
-
+    },
   ],
 
-  bathroomPM: [ {n: {
-    type: String,
-    default:"1",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"2",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"3",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"4",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"5",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"6",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"7",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"8",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"9",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"10",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"11",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"12",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }}],
-  treatsAM: [ {n: {
-    type: String,
-    default:"1",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"2",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"3",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"4",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"5",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"6",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"7",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"8",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"9",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"10",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"11",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"12",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }}],
+  bathroomPM: [
+    {
+      n: {
+        type: String,
+      },
+      selected: {
+        type: Boolean,
+        default: false,
+      },
+    },
+  ],
+  treatsAM: [
+    {
+      n: {
+        type: String,
+      },
+      selected: {
+        type: Boolean,
+        default: false,
+      },
+    },
+  ],
 
-  treatsPM: [ {n: {
-    type: String,
-    default:"1",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"2",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"3",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"4",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"5",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"6",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"7",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"8",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"9",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"10",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"11",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }},
-  {n: {
-    type: String,
-    default:"12",
-    required:true        
-  },
-  selected: {
-    type:Boolean,
-    default:false        
-  }}],
+  treatsPM: [
+    {
+      n: {
+        type: String,
+      },
+      selected: {
+        type: Boolean,
+        default: false,
+      },
+    },
+  ],
   food: {
-    morning: { type: Boolean },
-    lunch: { type: Boolean, default: false },
+    breakfast: { type: Boolean },
+    lunch: { type: Boolean},
     dinner: { type: Boolean },
   },
   medical: {

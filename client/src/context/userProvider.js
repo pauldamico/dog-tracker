@@ -6,7 +6,7 @@ import { TrackerContext } from "./trackerProvider";
 export const UserContext = createContext();
 export function UserContextProvider(props) {
   const count = useRef(0)
-  const { getUserProfile } = useContext(ProfileContext);
+  const { getUserProfile, updatePagination } = useContext(ProfileContext);
   const {getTrackerData, addTracker} = useContext(TrackerContext)
 
   const initUser = {
@@ -28,10 +28,11 @@ export function UserContextProvider(props) {
         localStorage.setItem("token", res.data.token);
         setCurrentUser((prev) => ({ ...prev, user, token }));      
         navigate("/profile");
-        {
-          // token && getUserProfile();
-          // token && getTrackerData()
-        }
+        token && getUserProfile();
+        token && addTracker()
+        // token && getTrackerData()
+        console.log("test")
+ 
       })
       .catch((err) => console.log(err));
   
@@ -46,11 +47,11 @@ export function UserContextProvider(props) {
         localStorage.setItem("token", res.data.token);
         setCurrentUser((prev) => ({ ...prev, user, token }));      
         navigate("/profile");
-        {
+        
           token && getUserProfile();
           token && addTracker()
-          token && getTrackerData()
-        }
+          // token && getTrackerData()
+        
       })
       .catch((err) => console.log(err));
       
@@ -61,13 +62,13 @@ export function UserContextProvider(props) {
   useEffect(() => {
     count.current = count.current + 1
     {
-    
-      username && getUserProfile()
-      token && addTracker()
-      token && getTrackerData()
  
+      token && getUserProfile()
+      // token && addTracker()
+      token && getTrackerData()
+
     }
-  console.log(count.current)
+ 
   }, [navigate]);
 
   return (
