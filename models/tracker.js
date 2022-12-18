@@ -4,6 +4,8 @@ const date = new Date();
 const todaysDate = `${
   date.getMonth() + 1
 } ${date.getDate()} ${date.getFullYear()}`;
+const d = new Date();
+const time = d.getTime();
 const trackerSchema = new Schema({
   user: { type: Schema.Types.ObjectId, ref: "User" },
 
@@ -54,18 +56,14 @@ const trackerSchema = new Schema({
       },
     },
   ],
-  food: {
-    breakfast: { type: Boolean },
-    lunch: { type: Boolean},
-    dinner: { type: Boolean },
-  },
-  medical: {
-    medicineName: { type: String },
-    lastMedicineDate: { type: Date },
-    nextVetApt: { type: Date },
-  },
-  groomed: { type: String },
+  fedBreakfast: { type: Boolean, default: false },
+  fedLunch: { type: Boolean, default: false },
+  fedDinner: { type: Boolean, default: false },
+  medicalNotes: { type: String },
+  vetApt: { type: Date },
+  groomed: { type: Date },
   date: { type: String, default: todaysDate },
+  dateOrder: { type: String, default: time },
 });
 
 module.exports = mongoose.model("Tracker", trackerSchema);

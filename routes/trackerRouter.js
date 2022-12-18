@@ -8,6 +8,8 @@ const todaysDate = `${
   date.getMonth() + 1
 } ${date.getDate()} ${date.getFullYear()}`;
 
+
+//adds initial tracker for the day
 trackerRouter.post("/add", (req, res, next) => {
   Tracker.find({ user: req.auth._id, date: todaysDate }, (err, foundItem) => {
     console.log(foundItem)
@@ -32,6 +34,7 @@ trackerRouter.post("/add", (req, res, next) => {
     }
   });
 });
+
 
 trackerRouter.post("/add/bathroom/:timeId", (req, res, next) => {
   Tracker.find(
@@ -66,16 +69,7 @@ trackerRouter.post("/add/bathroom/:timeId", (req, res, next) => {
 
                 res.send({
                   bathroomAM: [updatedItem.bathroomAM],
-                  bathroomPM: [updatedItem.bathroomPM],
-                });
-              }
-            );
-          }
-        );
-      }
-    }
-  );
-});
+                  bathroomPM: [updatedItem.bathroomPM], })})})}})});
 
 trackerRouter.get("/", (req, res, next) => {
   Tracker.find({ user: req.auth._id }, (err, foundItems) => {
@@ -88,6 +82,7 @@ trackerRouter.get("/", (req, res, next) => {
 });
 
 trackerRouter.put("/update/:trackerId", (req, res, next) => {
+  console.log(req.body)
   Tracker.findOneAndUpdate(
     { user: req.auth._id, _id: req.params.trackerId },
     req.body,
@@ -103,21 +98,6 @@ trackerRouter.put("/update/:trackerId", (req, res, next) => {
   );
 });
 
-// trackerRouter.put('/updateTime/:trackerId', (req, res, next)=>{
-//     Tracker.find({user:req.auth._id, _id:req.params.trackerId}, req.body, {new:true}, (err, updatedItem)=>{
-//     if(err)
-//     {res.status(500)
-//     return (next(err))
-//     }
-//     if(updatedItem){
-//         console.log(req.body)
-//        Tracker.updateOne({_id:req.params.trackerId}, {$set:{[req.body]:req.body.selected}}, (err, updated)=>{
-// res.send(updated)
-//        })
-
-//     }
-//     })
-//     })
 
 trackerRouter.put("/updateTimeBathAM/:timeId", (req, res, next) => {
   const value = req.body.selected;
@@ -263,3 +243,19 @@ trackerRouter.post("/add/time/:timeId", (req, res, next) => {
 });
 
 module.exports = trackerRouter;
+
+// trackerRouter.put('/updateTime/:trackerId', (req, res, next)=>{
+//     Tracker.find({user:req.auth._id, _id:req.params.trackerId}, req.body, {new:true}, (err, updatedItem)=>{
+//     if(err)
+//     {res.status(500)
+//     return (next(err))
+//     }
+//     if(updatedItem){
+//         console.log(req.body)
+//        Tracker.updateOne({_id:req.params.trackerId}, {$set:{[req.body]:req.body.selected}}, (err, updated)=>{
+// res.send(updated)
+//        })
+
+//     }
+//     })
+//     })

@@ -50,7 +50,7 @@ export function UserContextProvider(props) {
         
           token && getUserProfile();
           token && addTracker()
-          // token && getTrackerData()
+          token && getTrackerData()
         
       })
       .catch((err) => console.log(err));
@@ -69,7 +69,7 @@ export function UserContextProvider(props) {
 
     }
  
-  }, [navigate]);
+  }, [navigate, ]);
 
   return (
     <UserContext.Provider value={{ username, token, signup, login, userId }}>

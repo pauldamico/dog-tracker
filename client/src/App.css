@@ -41,11 +41,11 @@ grid-row: 7/9;
 }
 
 .tracker-medical-div{
-  grid-column: 17/20;
+  grid-column: 16/21;
   grid-row: 2/5;
 }
 .tracker-grooming-div{
-  grid-column: 17/20;
+  grid-column: 16/21;
 grid-row: 7/9;
 }
 .tracker-time-div{

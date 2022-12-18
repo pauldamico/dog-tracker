@@ -1,29 +1,44 @@
-import React, { useState } from "react";
-export default function FedPet() {
-  const [fedTime, setFedTime] = useState({
-    breakfast: false,
-    lunch: false,
-    dinner: false,
+import React, { useState, useContext } from "react";
+import { TrackerContext } from "../../context/trackerProvider";
+
+export default function FedPet(props) {
+  const {updateFedPet, getTrackerData} = useContext(TrackerContext)
+  const {trackerId, fedBreakfast, fedLunch, fedDinner} = props
+
+  const [fedFood, setFedFood] = useState({fedBreakfast,   
+    fedLunch,
+    fedDinner
   });
 
+
+
   function breakfastClickHandler() {
-    setFedTime((prev) => ({ ...prev, breakfast: !prev.breakfast }));
-    console.log(fedTime)
+    getTrackerData()
+    const fedName = "fedBreakfast"
+    setFedFood((prev) => ({ ...prev, fedBreakfast: !prev.fedBreakfast }));
+  console.log(fedBreakfast)
+    updateFedPet(!fedFood.fedBreakfast, trackerId, fedName)
+   
   }
   function lunchClickHandler() {
-    setFedTime((prev) => ({ ...prev, lunch: !prev.lunch }));
-    console.log(fedTime)
+    const fedName = "fedLunch"
+    setFedFood((prev) => ({ ...prev, fedLunch: !prev.fedLunch }));  
+    updateFedPet(!fedFood.fedLunch, trackerId, fedName)   
   }
+
   function dinnerClickHandler() {
-    setFedTime((prev) => ({ ...prev, dinner: !prev.dinner }));
-    console.log(fedTime)
+    const fedName = "fedDinner"
+    setFedFood((prev) => ({ ...prev, fedDinner: !prev.fedDinner }));
+    updateFedPet(!fedFood.fedDinner, trackerId, fedName)
   }
+
+
 
   return (
     <div>
-      <button onClick={breakfastClickHandler}>Breakfast</button>
-      <button onClick={lunchClickHandler}>Lunch</button>
-      <button onClick={dinnerClickHandler}>Dinner</button>
+      <button style={{backgroundColor:fedFood.fedBreakfast === true ? "green" : "grey"}} onClick={breakfastClickHandler}>Breakfast</button>
+      <button style={{backgroundColor:fedFood.fedLunch === true ? "green" : "grey"}} onClick={lunchClickHandler}>Lunch</button>
+      <button style={{backgroundColor:fedFood.fedDinner === true ? "green" : "grey"}} onClick={dinnerClickHandler}>Dinner</button>
     </div>
   );
 }

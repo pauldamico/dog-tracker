@@ -1,5 +1,7 @@
 import React, {useContext } from "react";
 import FedPet from "./FedPet";
+import Grooming from "./Grooming";
+import Medical from "./Medical";
 import Time from "./Time";
 import { TrackerContext } from "../../context/trackerProvider";
 
@@ -9,11 +11,8 @@ export default function Tracker(props) {
 
 
 
-  const { _id:trackerId, bathroomAM, bathroomPM, treatsAM, treatsPM, food, date } = props;
-  const {updateSelectedTime} = useContext(TrackerContext);
-
-
-
+  const { _id:trackerId, bathroomAM, bathroomPM, treatsAM, treatsPM, fedBreakfast, fedLunch, fedDinner, date, medicalNotes, vetApt, groomed } = props;
+  const {updateSelectedTime, trackerInfo} = useContext(TrackerContext);
 
 
   return (
@@ -37,7 +36,7 @@ export default function Tracker(props) {
         <div className="tracker-time-div">{date}</div>
         <div className="tracker-fed-pet-div">
         <h1>Fed dog?</h1>
-        <FedPet food={food} trackerId={trackerId}/>
+        <FedPet fedBreakfast={fedBreakfast} fedLunch={fedLunch} fedDinner={fedDinner} trackerId={trackerId}/>
       
         </div>
         <div className="tracker-treat-div">
@@ -48,14 +47,14 @@ export default function Tracker(props) {
           </div>
           <section>PM</section>
           <div className="time-div">            
-            {treatsPM.map(item=>(<Time name="updateTimeTreatsPM" frontEndName="treatsPM"trackerId={trackerId} updateSelectedTime={updateSelectedTime} key={item._id} {...item}/>))}
+            {treatsPM.map(item=>(<Time name="updateTimeTreatsPM" frontEndName="treatsPM" trackerId={trackerId} updateSelectedTime={updateSelectedTime} key={item._id} {...item}/>))}
           </div>
           </div>
-       <div className="tracker-medical-div">
-        <h1>Medical info?</h1>
+       <div className="tracker-medical-div">    
+        <Medical medicalNotes={medicalNotes} vetApt={vetApt} trackerId={trackerId}/>
         </div>
-        <div className="tracker-grooming-div">
-        <h1>Last grooming?</h1>
+        <div className="tracker-grooming-div">        
+        <Grooming groomed={groomed} trackerId={trackerId}/>
         </div>
       </div>
     </div>

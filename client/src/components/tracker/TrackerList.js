@@ -5,15 +5,15 @@ export default function TrackerList (){
    
     const {trackerInfo} = useContext(TrackerContext)
     const count = useRef(0)
+
+trackerInfo && console.log(trackerInfo.sort((a, b)=>b.dateOrder - a.dateOrder))
 const [index, setIndex] = useState(0)
 
    function showPreviousDay(){   
-console.log(trackerInfo)
-
   if(count.current !== trackerInfo.length - 1){
     count.current += 1
     setIndex(prev=>count.current)
-    console.log(count)
+ 
   }
    }
 

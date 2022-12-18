@@ -4,6 +4,8 @@ export const TrackerContext = createContext()
 export  function TrackerContextProvider(props){
     const date = new Date()
     const todaysDate = `${date.getMonth() + 1} ${date.getDate()} ${date.getFullYear()}`
+    const d = new Date()
+const time =d.getTime()
   
 const {userAxios} = useContext(ProfileContext)
     const initValue =   {
@@ -11,10 +13,14 @@ const {userAxios} = useContext(ProfileContext)
         bathroomPM:[{n:12}, {n:1},{n:2},{n:3},{n:4},{n:5},{n:6},{n:7},{n:8}, {n:9}, {n:10}, {n:11}],
        treatsAM:[{n:12}, {n:1},{n:2},{n:3},{n:4},{n:5},{n:6},{n:7},{n:8}, {n:9}, {n:10}, {n:11}], 
        treatsPM:[{n:12}, {n:1},{n:2},{n:3},{n:4},{n:5},{n:6},{n:7},{n:8}, {n:9}, {n:10}, {n:11}],
-       food: {breakfast:false, lunch: false, dinner: false},
-       medical: {medicineName: "", lastMedicineDate: "", nextVetApt: ""},
+       fedBreakfast: false,
+       fedLunch:false,
+       fedDinner:false,
+       medicalNotes:"",
+       vetApt:"",
        groomed:"",
-       date:todaysDate
+       date:todaysDate,
+       dateOrder:time
    }
 
 const [trackerInfo, setTrackerInfo] = useState()
@@ -31,13 +37,11 @@ const [trackerInfo, setTrackerInfo] = useState()
     .then(res=>setTrackerInfo(prev=>[res.data]))
     .catch(err=>()=>{}) 
   }
-//// fix
-  function updateSelectedTime (timeId, selected, name, trackerId, frontEndName){   
-  
+
+  function updateSelectedTime (timeId, selected, name, trackerId, frontEndName){   // dont need to reverse this (its only for times)  
     userAxios.put(`/api/tracker/${name}/${timeId}`, {selected})
     .then(res=>{
-   
- setTrackerInfo( prev=>prev.map(item=>item._id===trackerId ? {...item, [frontEndName]:item[frontEndName].map(time=>time._id === timeId ? {...time, selected} : {...time})}: {...item} ))
+    setTrackerInfo( prev=>prev.map(item=>item._id===trackerId ? {...item, [frontEndName]:item[frontEndName].map(time=>time._id === timeId ? {...time, selected} : {...time})}: {...item} ))
 
 }
     )
@@ -45,12 +49,23 @@ const [trackerInfo, setTrackerInfo] = useState()
 
   }
 
+ 
+
     function getTrackerData (){
         userAxios.get('/api/tracker')
-        .then(res=>{setTrackerInfo(prev=>res.data)      
+        .then(res=>{setTrackerInfo(prev=>res.data.sort((a, b)=>b.dateOrder - a.dateOrder))  //changed this last added .sort    
         })
         .catch(err=>console.log(err))        
     }
+    
+function updateFedPet (fedValue, trackerId, fedName){
+  userAxios.put(`/api/tracker/update/${trackerId}`, {[fedName]:fedValue,})
+  .then(res=>{setTrackerInfo(prev=>prev.map(item=>item._id === trackerId ? {...item, [fedName]:res.data[fedName]} : {...prev}))
+
+
+})
+  .catch(err=>console.log(err))
+}
 
 
 
@@ -59,9 +74,7 @@ const [trackerInfo, setTrackerInfo] = useState()
 
 
 
-
-
-return (<TrackerContext.Provider value={{updateSelectedTime, initValue, trackerInfo, addTracker, getTrackerData}}>
+return (<TrackerContext.Provider value={{updateFedPet, updateSelectedTime, initValue, trackerInfo, addTracker, getTrackerData}}>
 {props.children}
 </TrackerContext.Provider>)
 
