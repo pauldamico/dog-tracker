@@ -29,11 +29,10 @@ export function UserContextProvider(props) {
         setCurrentUser((prev) => ({ ...prev, user, token }));      
         navigate("/profile");
         token && getUserProfile();
-        token && addTracker()
-        // token && getTrackerData()
-        console.log("test")
- 
+        // token && addTracker()
+        token && getTrackerData()       
       })
+   
       .catch((err) => console.log(err));
   
   }
@@ -49,7 +48,7 @@ export function UserContextProvider(props) {
         navigate("/profile");
         
           token && getUserProfile();
-          token && addTracker()
+          // token && addTracker()
           token && getTrackerData()
         
       })
@@ -63,9 +62,9 @@ export function UserContextProvider(props) {
     count.current = count.current + 1
     {
  
-      token && getUserProfile()
-      // token && addTracker()
-      token && getTrackerData()
+      // token && getUserProfile()
+      token && addTracker()
+            token && getTrackerData()
 
     }
  

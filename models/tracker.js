@@ -60,9 +60,9 @@ const trackerSchema = new Schema({
   fedLunch: { type: Boolean, default: false },
   fedDinner: { type: Boolean, default: false },
   medicalNotes: { type: String },
-  vetApt: { type: Date },
-  groomed: { type: Date },
-  date: { type: String, default: todaysDate },
+  vetApt: { type: String },
+  groomed: { type: String },
+  date: { type: String, default: todaysDate},
   dateOrder: { type: String, default: time },
 });
 

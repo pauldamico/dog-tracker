@@ -13,7 +13,7 @@ export default function FedPet(props) {
 
 
   function breakfastClickHandler() {
-    getTrackerData()
+    // getTrackerData()
     const fedName = "fedBreakfast"
     setFedFood((prev) => ({ ...prev, fedBreakfast: !prev.fedBreakfast }));
   console.log(fedBreakfast)

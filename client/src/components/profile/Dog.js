@@ -31,6 +31,7 @@ export default function Dog(props) {
     <div>
       {updateToggled && (
         <div>
+          <h3>Pet Name</h3>
           <div>{dogName}</div>
           <div>
             <div>

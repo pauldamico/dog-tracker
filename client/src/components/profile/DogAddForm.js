@@ -27,7 +27,7 @@ export default function DogAddForm(props) {
   function updateChangeHandler(event) {
     const { name, value } = event.target;
     setUpdatedNewProfile((prev) => ({ ...prev, [name]: value }));
-
+   
   }
 
   function updateSubmitHandler(event) {
@@ -42,8 +42,8 @@ export default function DogAddForm(props) {
       vet: "",
     }));
     // getTrackerData()
-    // addToggler()
-
+    addToggler()
+  
   }
 
   return (
@@ -51,6 +51,7 @@ export default function DogAddForm(props) {
       <form onSubmit={updateSubmitHandler}>
         <div>
           <div>
+          <h3>Name</h3>
             <input
               type="text"
               name="dogName"

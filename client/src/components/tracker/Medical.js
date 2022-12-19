@@ -1,13 +1,19 @@
 import MedicalForm from "./MedicalForm";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { TrackerContext } from "../../context/trackerProvider";
 export default function Medical(props) {
-  const { notes, vetApt } = props;
+  const { medicalNotes, vetApt, trackerId } = props;
+  const {trackerInfo} = useContext(TrackerContext)
 
   const [toggle, setToggle] = useState(true);
+  
   function toggler (){
     setToggle(!toggle)
   }
 
+
+// findNewestDate ()
+//   trackerInfo.find(item=>item.vetApt.length > 1 ).vetApt 
   return (
     <div >
 {toggle ?
@@ -15,17 +21,17 @@ export default function Medical(props) {
     <h1>Medical/Vet</h1>
         <div>
           <section>Schedule Vet Date</section>
-          <section>{vetApt}</section>
+          <section>{trackerInfo.find(item=>item.vetApt.length > 1 ) ? trackerInfo.find(item=>item.vetApt.length > 1 ).vetApt : ""}</section>
         </div>        
         <div>
-          <section>{notes}</section>
+        
           <section>Notes</section>
         </div>        
-        <section>{notes}</section>
+        <section>{trackerInfo.find(item=>item.medicalNotes.length > 1 ) ? trackerInfo.find(item=>item.medicalNotes.length > 1 ).medicalNotes : ""}</section>
       </div>
       :
       
-      <MedicalForm toggler={toggler} />
+      <MedicalForm trackerInfo={trackerInfo} trackerId={trackerId} medicalNotes={medicalNotes} vetApt={vetApt }toggler={toggler} />
    
       }
     </div>

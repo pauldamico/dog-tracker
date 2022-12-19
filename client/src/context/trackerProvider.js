@@ -21,6 +21,8 @@ const {userAxios} = useContext(ProfileContext)
        groomed:"",
        date:todaysDate,
        dateOrder:time
+
+      
    }
 
 const [trackerInfo, setTrackerInfo] = useState()
@@ -35,7 +37,7 @@ const [trackerInfo, setTrackerInfo] = useState()
   function addTracker (){
     userAxios.post('/api/tracker/add', initValue)
     .then(res=>setTrackerInfo(prev=>[res.data]))
-    .catch(err=>()=>{}) 
+    .catch(err=>console.log(err)) 
   }
 
   function updateSelectedTime (timeId, selected, name, trackerId, frontEndName){   // dont need to reverse this (its only for times)  
@@ -60,11 +62,25 @@ const [trackerInfo, setTrackerInfo] = useState()
     
 function updateFedPet (fedValue, trackerId, fedName){
   userAxios.put(`/api/tracker/update/${trackerId}`, {[fedName]:fedValue,})
-  .then(res=>{setTrackerInfo(prev=>prev.map(item=>item._id === trackerId ? {...item, [fedName]:res.data[fedName]} : {...prev}))
-
-
+  .then(res=>{setTrackerInfo(prev=>prev.map(item=>item._id === trackerId ? {...item, [fedName]:res.data[fedName]} : {...item}))
 })
   .catch(err=>console.log(err))
+}
+
+function submitGrooming (date, trackerId){
+  userAxios.put(`/api/tracker/update/${trackerId}`, {groomed:date})
+  .then(res=>{setTrackerInfo(prev=>prev.map(item=>item._id === trackerId ? {...item, groomed:res.data.groomed} : {...item}))
+})
+  .catch(err=>console.log(err))
+  console.log(trackerInfo)
+}
+
+function submitMedical (medicalInfo, trackerId){
+  userAxios.put(`/api/tracker/update/${trackerId}`, {...medicalInfo})
+  .then(res=>{setTrackerInfo(prev=>prev.map(item=>item._id === trackerId ? {...item, medicalNotes:res.data.medicalNotes, vetApt:res.data.vetApt} : {...item}))
+})
+  .catch(err=>console.log(err))
+  console.log(trackerInfo)
 }
 
 
@@ -72,9 +88,7 @@ function updateFedPet (fedValue, trackerId, fedName){
 
 
 
-
-
-return (<TrackerContext.Provider value={{updateFedPet, updateSelectedTime, initValue, trackerInfo, addTracker, getTrackerData}}>
+return (<TrackerContext.Provider value={{submitMedical, updateFedPet, updateSelectedTime, initValue, trackerInfo, addTracker, getTrackerData, submitGrooming}}>
 {props.children}
 </TrackerContext.Provider>)
 

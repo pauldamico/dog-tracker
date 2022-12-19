@@ -6,14 +6,13 @@ export default function TrackerList (){
     const {trackerInfo} = useContext(TrackerContext)
     const count = useRef(0)
 
-trackerInfo && console.log(trackerInfo.sort((a, b)=>b.dateOrder - a.dateOrder))
 const [index, setIndex] = useState(0)
 
    function showPreviousDay(){   
   if(count.current !== trackerInfo.length - 1){
     count.current += 1
     setIndex(prev=>count.current)
- 
+    console.log(count)
   }
    }
 
@@ -34,7 +33,7 @@ const [index, setIndex] = useState(0)
     return (<div>
    {trackerInfo && <div className="tracker-list-div">
     <div>
-<Tracker key={trackerInfo[index]._id} {...trackerInfo[index]} />
+{trackerInfo && <Tracker key={trackerInfo[index]._id} {...trackerInfo[index]} />}
 </div> 
 
 
