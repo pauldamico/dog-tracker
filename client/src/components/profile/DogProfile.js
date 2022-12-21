@@ -32,7 +32,7 @@ export default function DogProfile() {
         )}
       </div>
 
-      <div>
+      {!addToggle &&<div>
         {profiles.map((profile) => (
           <Dog
             userAxios={userAxios}
@@ -47,7 +47,7 @@ export default function DogProfile() {
           />
         ))}
         <button className = "addpet" onClick={()=>{addToggler(true)}}>Add pet</button>
-      </div>
+      </div>}
       
 
       {addToggle && profiles.length >= 1 && (

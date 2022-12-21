@@ -15,7 +15,7 @@ a {
 }
 .profile-form-div {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
 .nav-div {
@@ -95,21 +95,56 @@ a {
 }
 
 .tracker-medical-div {
-  grid-column: 2/5;
+  grid-column: 2/7;
   grid-row: 7/9;
   z-index: 100;
+}
+.vetapt-date{
+  text-align: center;
+  width: fit-content;
+ background-color: blue;
+ 
+}
+.vetapt-form-div{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.vetapt-notes{
+  font-size: 14px;
+  text-align: left;
+
+  max-width:250px;
+  width: fit-content;
+
+
+ 
 }
 .tracker-medical-div:hover {
   cursor: pointer;
 }
+.text-input-notes{
+  font-size: 15px;
+  text-align: left;
+}
+
 
 .tracker-grooming-div {
-  grid-column: 16/19;
+  grid-column: 16/20;
   grid-row: 7/9;
   z-index: 100;
 }
+.grooming-userinput-div{
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+}
+
 .tracker-grooming-div:hover {
   cursor: pointer;
+}
+.grooming{
+  background-color: blue;
 }
 .tracker-time-div {
   font-family: 'Anton', sans-serif;
@@ -225,6 +260,110 @@ a {
     grid-row: 1/2;
     z-index: 100;
   }
+  .next-medical-appointment-div{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+  }
+  .medical-notes-div{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+  }
+  .grooming{
+    text-align: center;
+    width: fit-content;
+   background-color: blue;
+  }
+  .vetapt-notes{
+max-width: 300px;
+  }
+}
+
+@media only screen and (max-height: 630px) {
+
+*{
+  font-size: 8px;
+
+}
+
+
+.main-tracker-div2 {
+  border-radius: 10px;
+  background-color: white;
+  color: white;
+  width: 80%;
+  margin-top: 2%;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(20, 5%);
+}
+
+.tracker-took-out-pet-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1/-1;
+  grid-row: 3/5;
+  z-index: 100;
+}
+
+.tracker-fed-pet-div {
+  text-align: center;
+  grid-column: 1/-1;
+  grid-row: 7/8;
+  z-index: 100;
+}
+
+.tracker-treat-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1/-1;
+  grid-row: 10/12;
+  z-index: 100;
+}
+
+.tracker-medical-div {
+  text-align: center;
+  grid-column: 3/-1;
+  grid-row: 15/17;
+  z-index: 100;
+}
+.tracker-grooming-div {
+  text-align: center;
+  grid-column: 1/2;
+  grid-row: 15/17;
+  z-index: 100;
+}
+
+.tracker-time-div {
+  font-size: 10px;
+  margin-top: 5px;
+  text-align: center;
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  z-index: 100;
+}
+.next-medical-appointment-div{
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+}
+.medical-notes-div{
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+}
+.grooming{
+  text-align: center;
+  width: fit-content;
+ background-color: blue;
+}
+
 }
 
 /* .tracker-list-div>div:first-child{

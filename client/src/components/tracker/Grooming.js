@@ -16,9 +16,10 @@ export default function Grooming (props){
     return(<div>
     
         {toggle ?
-        <div onClick={toggler}>
+        <div className="grooming-userinput-div" onClick={toggler}>
                 <h1>Next Grooming</h1>
-{trackerInfo.find(item=>item.groomed.length > 1 ) ? trackerInfo.find(item=>item.groomed.length > 1 ).groomed : "" }
+                <section className="grooming">
+{trackerInfo.find(item=>item.groomed.length > 1 ) ? trackerInfo.find(item=>item.groomed.length > 1 ).groomed : "" }</section>
         </div>
         :
 

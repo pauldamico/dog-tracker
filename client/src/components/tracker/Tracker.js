@@ -19,7 +19,7 @@ console.log("test")
     
       <div className="main-tracker-div2">
         <div className="tracker-took-out-pet-div">
-          <h1 className="took-out-pet-title">Took dog out?</h1>
+          <h1 className="took-out-pet-title">Took dog out</h1>
           
           <section>AM</section> 
           <div className="time-div">        
@@ -35,12 +35,12 @@ console.log("test")
         </div >
         <div className="tracker-time-div">{date}</div>
         <div className="tracker-fed-pet-div">
-        <h1>Fed dog?</h1>
+        <h1>Fed dog</h1>
         <FedPet fedBreakfast={fedBreakfast} fedLunch={fedLunch} fedDinner={fedDinner} trackerId={trackerId}/>
       
         </div>
         <div className="tracker-treat-div">
-        <h1 className="treat-title">Gave Treat?</h1>
+        <h1 className="treat-title">Gave Treat</h1>
         <section>AM</section>
         <div className="time-div">  
                     

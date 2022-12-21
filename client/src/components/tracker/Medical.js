@@ -19,15 +19,16 @@ export default function Medical(props) {
 {toggle ?
       <div onClick={toggler}>
     <h1>Medical/Vet</h1>
-        <div>
+        <div className="next-medical-appointment-div">
           <section>Next Appointment</section>
-          <section>{trackerInfo.find(item=>item.vetApt.length > 1 ) ? trackerInfo.find(item=>item.vetApt.length > 1 ).vetApt : ""}</section>
+          <section className="vetapt-date">{trackerInfo.find(item=>item.vetApt.length > 1 ) ? trackerInfo.find(item=>item.vetApt.length > 1 ).vetApt : ""}</section>
         </div>        
-        <div>
+        <div className="medical-notes-div">
         
           <section>Notes</section>
-        </div>        
-        <section>{trackerInfo.find(item=>item.medicalNotes.length > 1 ) ? trackerInfo.find(item=>item.medicalNotes.length > 1 ).medicalNotes : ""}</section>
+           
+        <section className="vetapt-notes">{trackerInfo.find(item=>item.medicalNotes.length > 1 ) ? trackerInfo.find(item=>item.medicalNotes.length > 1 ).medicalNotes : ""}</section>
+        </div>    
       </div>
       :
       
