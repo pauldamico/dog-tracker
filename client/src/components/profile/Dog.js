@@ -28,7 +28,7 @@ export default function Dog(props) {
   }
 
   return (
-    <div>
+    <div className="profile-div">
       {updateToggled && (
         <div>
           <h3>Pet Name</h3>

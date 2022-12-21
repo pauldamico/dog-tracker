@@ -29,7 +29,7 @@ export default function Auth(props) {
         <label>Username</label>
         <input name="username" onChange={userChangeHandler} type="text" />
         <label>Password</label>
-        <input name="password" onChange={userChangeHandler} type="text" />
+        <input name="password" onChange={userChangeHandler} type="password" />
         {haveAccount ? <button>Login</button> : <button>Sign Up</button>}
         {haveAccount ? (
           <section onClick={haveAccountToggler}>

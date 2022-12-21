@@ -20,7 +20,7 @@ export default function Medical(props) {
       <div onClick={toggler}>
     <h1>Medical/Vet</h1>
         <div>
-          <section>Schedule Vet Date</section>
+          <section>Next Appointment</section>
           <section>{trackerInfo.find(item=>item.vetApt.length > 1 ) ? trackerInfo.find(item=>item.vetApt.length > 1 ).vetApt : ""}</section>
         </div>        
         <div>

@@ -35,10 +35,10 @@ export default function FedPet(props) {
 
 
   return (
-    <div>
-      <button style={{backgroundColor:fedFood.fedBreakfast === true ? "green" : "grey"}} onClick={breakfastClickHandler}>Breakfast</button>
-      <button style={{backgroundColor:fedFood.fedLunch === true ? "green" : "grey"}} onClick={lunchClickHandler}>Lunch</button>
-      <button style={{backgroundColor:fedFood.fedDinner === true ? "green" : "grey"}} onClick={dinnerClickHandler}>Dinner</button>
+    <div className="fedpet">
+      <button style={{backgroundColor:fedFood.fedBreakfast === true ? "green" : "white"}} onClick={breakfastClickHandler}>Breakfast</button>
+      <button style={{backgroundColor:fedFood.fedLunch === true ? "green" : "white"}} onClick={lunchClickHandler}>Lunch</button>
+      <button style={{backgroundColor:fedFood.fedDinner === true ? "green" : "white"}} onClick={dinnerClickHandler}>Dinner</button>
     </div>
   );
 }

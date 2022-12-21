@@ -1,18 +1,14 @@
 import React, { useState, useContext } from "react";
-import { Tracker, TrackerContext } from "../../context/trackerProvider";
+import {TrackerContext } from "../../context/trackerProvider";
+import {ProfileContext } from "../../context/profileProvider";
 
 export default function DogAddForm(props) {
-  const {getTrackerData} = useContext(TrackerContext)
+  const {getTrackerData} = useContext(TrackerContext, )
+  const {getUserProfile} = useContext(ProfileContext)
   const {
  
     addNewProfile,
-    addToggler,
-    profile,
-    username,
-    userId,
-    updateToggler,
-    submitUpdatedProfile,
-    _id,
+    addToggler, 
   } = props;
 
   const [updatedNewProfile, setUpdatedNewProfile] = useState({
@@ -42,7 +38,8 @@ export default function DogAddForm(props) {
       vet: "",
     }));
     // getTrackerData()
-    addToggler()
+    getUserProfile()
+    addToggler(false)
   
   }
 

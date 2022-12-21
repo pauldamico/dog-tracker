@@ -17,8 +17,8 @@ export default function Grooming (props){
     
         {toggle ?
         <div onClick={toggler}>
-                <h1>Grooming Appointment</h1>
-{trackerInfo.find(item=>item.groomed.length > 1 ) ? trackerInfo.find(item=>item.vetApt.length > 1 ).groomed : "" }
+                <h1>Next Grooming</h1>
+{trackerInfo.find(item=>item.groomed.length > 1 ) ? trackerInfo.find(item=>item.groomed.length > 1 ).groomed : "" }
         </div>
         :
 

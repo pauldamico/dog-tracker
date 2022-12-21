@@ -6,7 +6,7 @@ export  function TrackerContextProvider(props){
     const todaysDate = `${date.getMonth() + 1} ${date.getDate()} ${date.getFullYear()}`
     const d = new Date()
 const time =d.getTime()
-  
+ 
 const {userAxios} = useContext(ProfileContext)
     const initValue =   {
         bathroomAM:[{n:12}, {n:1},{n:2},{n:3},{n:4},{n:5},{n:6},{n:7},{n:8}, {n:9}, {n:10}, {n:11}],
@@ -25,7 +25,7 @@ const {userAxios} = useContext(ProfileContext)
       
    }
 
-const [trackerInfo, setTrackerInfo] = useState()
+const [trackerInfo, setTrackerInfo] = useState([""])
 
 
 
@@ -35,9 +35,11 @@ const [trackerInfo, setTrackerInfo] = useState()
 
 
   function addTracker (){
+  
+ 
     userAxios.post('/api/tracker/add', initValue)
     .then(res=>setTrackerInfo(prev=>[res.data]))
-    .catch(err=>console.log(err)) 
+    .catch(err=>()=>{}) 
   }
 
   function updateSelectedTime (timeId, selected, name, trackerId, frontEndName){   // dont need to reverse this (its only for times)  
@@ -68,6 +70,7 @@ function updateFedPet (fedValue, trackerId, fedName){
 }
 
 function submitGrooming (date, trackerId){
+ 
   userAxios.put(`/api/tracker/update/${trackerId}`, {groomed:date})
   .then(res=>{setTrackerInfo(prev=>prev.map(item=>item._id === trackerId ? {...item, groomed:res.data.groomed} : {...item}))
 })
@@ -88,7 +91,7 @@ function submitMedical (medicalInfo, trackerId){
 
 
 
-return (<TrackerContext.Provider value={{submitMedical, updateFedPet, updateSelectedTime, initValue, trackerInfo, addTracker, getTrackerData, submitGrooming}}>
+return (<TrackerContext.Provider value={{submitMedical, updateFedPet, updateSelectedTime, getTrackerData, addTracker,todaysDate,  initValue, trackerInfo, addTracker, getTrackerData, submitGrooming}}>
 {props.children}
 </TrackerContext.Provider>)
 

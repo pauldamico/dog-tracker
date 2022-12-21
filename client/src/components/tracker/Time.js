@@ -10,6 +10,6 @@ const [currentTimeInfo, setCurrentTimeInfo] = useState({n:n, selected:selected, 
         updateSelectedTime(currentTimeInfo._id, !currentTimeInfo.selected, name, trackerId, frontEndName)
     }
     return (<div>
-<h2 onClick = {timeClickHandler} style={{color:currentTimeInfo.selected ? "green" : "black"}}>{n}</h2>
+<h2 className="time" onClick = {timeClickHandler} style={{backgroundColor:currentTimeInfo.selected ? "#0065e8" : "white"}}>{n}</h2>
     </div>)
 }

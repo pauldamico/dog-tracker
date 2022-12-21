@@ -11,17 +11,17 @@ const todaysDate = `${
 
 //adds initial tracker for the day
 trackerRouter.post("/add", (req, res, next) => {
-  Tracker.find({ user: req.auth._id, date: todaysDate }, (err, foundItem) => {
+  Tracker.findOne({ user: req.auth._id, date: todaysDate }, (err, foundItem) => {
     console.log(foundItem)
     if (err) {
       res.status(500);
       return next(err);
     }
-    if (foundItem[0]) {
+    if (foundItem) {
       res.status(403);
       return next(new Error("Todays tracker already exist"));
     }
-    if (!foundItem[0]) {
+    if (!foundItem) {
       req.body.user = req.auth._id;
       const newTracker = new Tracker(req.body);
       newTracker.save((err, savedItem) => {

@@ -25,6 +25,7 @@
     "jsonwebtoken": "^8.5.1",
     "mogodb": "^0.0.1-security",
     "mongoose": "^6.8.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nanoid": "^4.0.0"
   }
 }

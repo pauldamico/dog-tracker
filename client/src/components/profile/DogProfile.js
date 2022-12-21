@@ -9,17 +9,17 @@ export default function DogProfile() {
     useContext(ProfileContext);
   const [addToggle, setAddToggle] = useState(false);
 
-  function addToggler() {
-    setAddToggle(!addToggle);
+  function addToggler(value) {
+    setAddToggle(value);
   }
 
   return (
     <div>
-      <section>Welcome {username} </section>
+
 
       <div>
         {profiles.length < 1 && (
-          <div>
+          <div className="profile-form-div">
             <DogAddForm
               submitUpdatedProfile={submitUpdatedProfile}
               addNewProfile={addNewProfile}
@@ -46,11 +46,12 @@ export default function DogProfile() {
             deleteProfile={deleteProfile}
           />
         ))}
+        <button className = "addpet" onClick={()=>{addToggler(true)}}>Add pet</button>
       </div>
-      <button onClick={addToggler}>Add pet</button>
+      
 
       {addToggle && profiles.length >= 1 && (
-        <div>
+        <div className="profile-form-div">
           <DogAddForm
             submitUpdatedProfile={submitUpdatedProfile}
             addNewProfile={addNewProfile}

@@ -1,34 +1,34 @@
-import React, {useContext } from "react";
+import React, {useContext, useEffect } from "react";
+import enzofield from "../../images/enzofield.jpg"
 import FedPet from "./FedPet";
 import Grooming from "./Grooming";
 import Medical from "./Medical";
 import Time from "./Time";
 import { TrackerContext } from "../../context/trackerProvider";
-
-
-
 export default function Tracker(props) {
 
 
-
+console.log("test")
   const { _id:trackerId, bathroomAM, bathroomPM, treatsAM, treatsPM, fedBreakfast, fedLunch, fedDinner, date, medicalNotes, vetApt, groomed } = props;
-  const {updateSelectedTime, trackerInfo} = useContext(TrackerContext);
+  const {updateSelectedTime} = useContext(TrackerContext);
+
 
 
   return (
     <div className="main-tracker-div1">
+    
       <div className="main-tracker-div2">
         <div className="tracker-took-out-pet-div">
-          <h1>Took dog out?</h1>
+          <h1 className="took-out-pet-title">Took dog out?</h1>
+          
           <section>AM</section> 
-         
           <div className="time-div">        
           
           {bathroomAM.map(item=>(<Time name ="updateTimeBathAM" frontEndName="bathroomAM" trackerId={trackerId} updateSelectedTime={updateSelectedTime} key={item._id} {...item}/>))}
           </div>
           <section>PM</section>
           <div className="time-div">  
-            
+          
             {bathroomPM.map(item=>(<Time name ="updateTimeBathPM" frontEndName="bathroomPM" trackerId={trackerId} updateSelectedTime={updateSelectedTime} key={item._id} {...item}/>))}
           </div>
           {/* <TakeDogOut submitTime={submitBathroomTime} hours={hours} trackerId={_id}/> */}
@@ -40,13 +40,15 @@ export default function Tracker(props) {
       
         </div>
         <div className="tracker-treat-div">
-        <h1>Last time dog had a treat?</h1>
+        <h1 className="treat-title">Gave Treat?</h1>
         <section>AM</section>
-        <div className="time-div">              
+        <div className="time-div">  
+                    
             {treatsAM.map(item=>(<Time name="updateTimeTreatsAM" frontEndName="treatsAM" trackerId={trackerId} updateSelectedTime={updateSelectedTime} key={item._id} {...item}/>))}
           </div>
-          <section>PM</section>
-          <div className="time-div">            
+          <section>PM</section>  
+          <div className="time-div">  
+                  
             {treatsPM.map(item=>(<Time name="updateTimeTreatsPM" frontEndName="treatsPM" trackerId={trackerId} updateSelectedTime={updateSelectedTime} key={item._id} {...item}/>))}
           </div>
           </div>
@@ -56,7 +58,9 @@ export default function Tracker(props) {
         <div className="tracker-grooming-div">        
         <Grooming groomed={groomed} trackerId={trackerId}/>
         </div>
+        <img src ={enzofield} className="backgroundImg" />
       </div>
+      
     </div>
   );
 }

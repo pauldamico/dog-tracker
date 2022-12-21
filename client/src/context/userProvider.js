@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ProfileContext } from "./profileProvider";
 import { TrackerContext } from "./trackerProvider";
+import TrackerList from "../components/tracker/TrackerList";
 export const UserContext = createContext();
 export function UserContextProvider(props) {
   const count = useRef(0)
@@ -14,6 +15,7 @@ export function UserContextProvider(props) {
     token: localStorage.getItem("token") || "",
   };
   const [currentUser, setCurrentUser] = useState(initUser);
+  const [loginError, setLoginError] = useState("")
   const { _id: userId, username } = currentUser.user;
   const { token } = currentUser;
   const navigate = useNavigate();
@@ -29,11 +31,12 @@ export function UserContextProvider(props) {
         setCurrentUser((prev) => ({ ...prev, user, token }));      
         navigate("/profile");
         token && getUserProfile();
-        // token && addTracker()
+        token && addTracker()
         token && getTrackerData()       
       })
    
-      .catch((err) => console.log(err));
+      .catch((err) => setLoginError(err.response.data.errMsg));
+      console.log(loginError)
   
   }
   function login(userInfo) {
@@ -48,30 +51,37 @@ export function UserContextProvider(props) {
         navigate("/profile");
         
           token && getUserProfile();
-          // token && addTracker()
+          token && addTracker()
           token && getTrackerData()
         
       })
-      .catch((err) => console.log(err));
-      
+      .catch((err) => setLoginError(err.response.data.errMsg));      
+      console.log(loginError)
   }
+
+  function logout (){
+    localStorage.clear()
+    setCurrentUser((prev) => ({ ...prev, user:{}, token:"" }));  
+    navigate('/login')
+}
 
 
 
   useEffect(() => {
     count.current = count.current + 1
+    console.log(count.current)
     {
  
-      // token && getUserProfile()
-      token && addTracker()
-            token && getTrackerData()
+      token && getUserProfile()      
+      token && count.current === 2 && addTracker() 
+      token && getTrackerData()
 
     }
  
-  }, [navigate, ]);
+  }, [ TrackerList]);
 
   return (
-    <UserContext.Provider value={{ username, token, signup, login, userId }}>
+    <UserContext.Provider value={{ username, token, signup, login, userId, logout, currentUser }}>
       {props.children}
     </UserContext.Provider>
   );

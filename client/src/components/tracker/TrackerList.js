@@ -3,8 +3,9 @@ import { TrackerContext } from "../../context/trackerProvider";
 import Tracker from "./Tracker"
 export default function TrackerList (){
    
-    const {trackerInfo} = useContext(TrackerContext)
+    const {trackerInfo, addTracker, todaysDate, getTrackerData } = useContext(TrackerContext)
     const count = useRef(0)
+    const addTrackerCount = useRef(0)
 
 const [index, setIndex] = useState(0)
 
@@ -29,18 +30,29 @@ const [index, setIndex] = useState(0)
    }
     }
 
+    // useEffect(()=>{
+    //   addTrackerCount.current += 1
+    //   console.log(addTrackerCount.current)
+    //   if(addTrackerCount.current >= 3){
+
+    //  addTracker() 
+    //  getTrackerData()
+   
+    //   }
+    // }, [])
+   
 
     return (<div>
    {trackerInfo && <div className="tracker-list-div">
     <div>
-{trackerInfo && <Tracker key={trackerInfo[index]._id} {...trackerInfo[index]} />}
+{trackerInfo[0] && <Tracker key={trackerInfo[index]._id} {...trackerInfo[index]} />}
 </div> 
 
 
-<div>
+<div className="previousNext-div">
     
- <button style={{backgroundColor: index < trackerInfo.length -1 ? "green" : "grey", border:"none" }} onClick={showPreviousDay}>previous</button>
-<button style={{backgroundColor: index < 0 -1 ? "green" : "grey", border:"none" }} onClick={showNextDay}>Next</button>
+ <button style={{backgroundColor: index < trackerInfo.length -1 ? "white" : "rgb(235, 234, 233)", border:"none" }} onClick={showPreviousDay}>{"<"}</button>
+<button style={{backgroundColor: index <= 0  ? "rgb(235, 234, 233)" : "white", border:"none" }} onClick={showNextDay}>{">"}</button>
 </div>
 </div>}
 
