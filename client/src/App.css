@@ -8,6 +8,10 @@
 html {
   background-color: rgb(235, 234, 233);
 }
+.login-error{
+  font-size:20px;
+  color:red;
+}
 
 a {
   color: black;

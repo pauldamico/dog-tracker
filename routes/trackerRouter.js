@@ -3,16 +3,20 @@ const express = require("express");
 // const Treats = require("../models/treats.js");
 const trackerRouter = express.Router();
 const Tracker = require("../models/tracker.js");
-const date = new Date();
-const todaysDate = `${
-  date.getMonth() + 1
-} ${date.getDate()} ${date.getFullYear()}`;
+// const date = new Date();
+// const todaysDate = `${
+//   date.getMonth() + 1
+// } ${date.getDate()} ${date.getFullYear()}`;
 
 
 //adds initial tracker for the day
 trackerRouter.post("/add", (req, res, next) => {
+  const date = new Date();
+const todaysDate = `${
+  date.getMonth() + 1
+} ${date.getDate()} ${date.getFullYear()}`;
   Tracker.findOne({ user: req.auth._id, date: todaysDate }, (err, foundItem) => {
-    console.log(foundItem)
+    console.log(todaysDate)
     if (err) {
       res.status(500);
       return next(err);

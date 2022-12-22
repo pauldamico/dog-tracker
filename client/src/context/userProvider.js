@@ -65,6 +65,9 @@ export function UserContextProvider(props) {
     navigate('/login')
 }
 
+function resetError(){
+  setLoginError("")
+}
 
 
   useEffect(() => {
@@ -81,7 +84,7 @@ export function UserContextProvider(props) {
   }, [ TrackerList]);
 
   return (
-    <UserContext.Provider value={{ username, token, signup, login, userId, logout, currentUser }}>
+    <UserContext.Provider value={{loginError, username, token, signup, login, userId, logout, currentUser, resetError }}>
       {props.children}
     </UserContext.Provider>
   );
