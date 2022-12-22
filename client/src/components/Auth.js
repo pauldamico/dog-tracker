@@ -14,10 +14,9 @@ export default function Auth(props) {
 
 
   const updateUserHandler = (event) => {
-    event.preventDefault()
-    {
+    event.preventDefault()    
       haveAccount ? login(userInfo) : signup(userInfo);
-    }
+    
  
   };
 
