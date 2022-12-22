@@ -7,7 +7,7 @@ import TrackerList from "../components/tracker/TrackerList";
 export const UserContext = createContext();
 export function UserContextProvider(props) {
   const count = useRef(0)
-  const { getUserProfile, updatePagination } = useContext(ProfileContext);
+  const { getUserProfile } = useContext(ProfileContext);
   const {getTrackerData, addTracker} = useContext(TrackerContext)
 
   const initUser = {
@@ -81,7 +81,7 @@ function resetError(){
 
     }
  
-  }, [ TrackerList]);
+  }, []);
 
   return (
     <UserContext.Provider value={{loginError, username, token, signup, login, userId, logout, currentUser, resetError }}>

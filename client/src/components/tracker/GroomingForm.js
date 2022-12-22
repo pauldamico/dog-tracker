@@ -12,7 +12,7 @@ export default function GroomingForm(props){
     }
 
     function groomingChangeHandler(event){
-        const {value, name} = event.target
+        const {value} = event.target
         setGroomedDate(value)
         console.log(groomedDate)
     }

@@ -1,4 +1,4 @@
-import React,{useState, createContext, useContext, useEffect} from "react";
+import React,{useState, createContext, useContext} from "react";
 import { ProfileContext } from "./profileProvider";
 export const TrackerContext = createContext()
 export  function TrackerContextProvider(props){
@@ -91,7 +91,7 @@ function submitMedical (medicalInfo, trackerId){
 
 
 
-return (<TrackerContext.Provider value={{submitMedical, updateFedPet, updateSelectedTime, getTrackerData, addTracker,todaysDate,  initValue, trackerInfo, addTracker, getTrackerData, submitGrooming}}>
+return (<TrackerContext.Provider value={{submitMedical, updateFedPet, updateSelectedTime, getTrackerData, addTracker,todaysDate,  initValue, trackerInfo, submitGrooming}}>
 {props.children}
 </TrackerContext.Provider>)
 

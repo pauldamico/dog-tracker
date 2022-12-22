@@ -3,9 +3,9 @@ import { TrackerContext } from "../../context/trackerProvider";
 import Tracker from "./Tracker"
 export default function TrackerList (){
    
-    const {trackerInfo, addTracker, todaysDate, getTrackerData } = useContext(TrackerContext)
+    const {trackerInfo} = useContext(TrackerContext)
     const count = useRef(0)
-    const addTrackerCount = useRef(0)
+  
 
 const [index, setIndex] = useState(0)
 

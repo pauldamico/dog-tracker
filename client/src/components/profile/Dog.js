@@ -12,8 +12,7 @@ export default function Dog(props) {
     vet,
     submitUpdatedProfile,
     addNewProfile,
-    username,
-    token,
+    username,    
     userId,
     userAxios,
     _id,
@@ -56,7 +55,7 @@ export default function Dog(props) {
             </div>
           </div>
           <div>
-            <img />
+            <img alt="dog" />
           </div>
           <button onClick={updateToggler}>Update Info</button>
           <button onClick={()=>{deleteProfile(_id)}}>Delete</button>

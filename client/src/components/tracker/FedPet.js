@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { TrackerContext } from "../../context/trackerProvider";
 
 export default function FedPet(props) {
-  const {updateFedPet, getTrackerData} = useContext(TrackerContext)
+  const {updateFedPet} = useContext(TrackerContext)
   const {trackerId, fedBreakfast, fedLunch, fedDinner} = props
 
   const [fedFood, setFedFood] = useState({fedBreakfast,   

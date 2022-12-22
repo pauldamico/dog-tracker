@@ -124,7 +124,7 @@ export default function DogProfileForm(props) {
             </div>
           </div>
           <div>
-            <img />
+            <img alt="profilecreate" />
           </div>
         </div>
         <button>Save Info</button>

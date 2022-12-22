@@ -1,4 +1,4 @@
-import React, {useContext, useEffect } from "react";
+import React, {useContext } from "react";
 import enzofield from "../../images/enzofield.jpg"
 import FedPet from "./FedPet";
 import Grooming from "./Grooming";
@@ -58,7 +58,7 @@ console.log("test")
         <div className="tracker-grooming-div">        
         <Grooming groomed={groomed} trackerId={trackerId}/>
         </div>
-        <img src ={enzofield} className="backgroundImg" />
+        <img src ={enzofield} alt="trackerBackground" className="backgroundImg" />
       </div>
       
     </div>

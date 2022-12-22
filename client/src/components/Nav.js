@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from "react";
-import { TrackerContext } from "../context/trackerProvider";
+import React, { useContext } from "react";
+
 import { UserContext } from "../context/userProvider";
 
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Nav() {
-  const navigate = useNavigate();
-  const { token, logout, currentUser } = useContext(UserContext);
+ 
+  const { token, logout} = useContext(UserContext);
 
   
   return (

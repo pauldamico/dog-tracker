@@ -3,7 +3,6 @@ import {TrackerContext } from "../../context/trackerProvider";
 import {ProfileContext } from "../../context/profileProvider";
 
 export default function DogAddForm(props) {
-  const {getTrackerData} = useContext(TrackerContext, )
   const {getUserProfile} = useContext(ProfileContext)
   const {
  
@@ -114,7 +113,7 @@ export default function DogAddForm(props) {
             </div>
           </div>
           <div>
-            <img />
+            <img alt="dogadd"/>
           </div>
         </div>
         <button>Save Info</button>
