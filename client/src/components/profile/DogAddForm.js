@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import {TrackerContext } from "../../context/trackerProvider";
 import {ProfileContext } from "../../context/profileProvider";
 
 export default function DogAddForm(props) {

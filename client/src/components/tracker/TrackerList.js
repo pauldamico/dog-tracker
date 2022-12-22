@@ -1,4 +1,4 @@
-import React, {useContext, useRef, useState, useEffect } from "react";
+import React, {useContext, useRef, useState } from "react";
 import { TrackerContext } from "../../context/trackerProvider";
 import Tracker from "./Tracker"
 export default function TrackerList (){

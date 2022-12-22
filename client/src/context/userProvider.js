@@ -3,7 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ProfileContext } from "./profileProvider";
 import { TrackerContext } from "./trackerProvider";
-import TrackerList from "../components/tracker/TrackerList";
 export const UserContext = createContext();
 export function UserContextProvider(props) {
   const count = useRef(0)
@@ -73,13 +72,13 @@ function resetError(){
   useEffect(() => {
     count.current = count.current + 1
     console.log(count.current)
-    {
+    
  
       token && getUserProfile()      
       token && count.current === 2 && addTracker() 
       token && getTrackerData()
 
-    }
+    
  
   }, []);
 
