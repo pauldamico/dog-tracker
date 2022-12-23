@@ -31,7 +31,7 @@ export default function Auth(props) {
         <label>Username</label>
         <input name="username" onChange={userChangeHandler} type="text" />
         <label>Password</label>
-        <input name="password"  onChange={userChangeHandler} type="password" />
+        <input name="password"  onChange={userChangeHandler} autoComplete="on" type="password" />
         {haveAccount ? <button>Login</button> : <button>Sign Up</button>}
         {haveAccount ? <div>
         <section className="login-error">{loginError}</section>
