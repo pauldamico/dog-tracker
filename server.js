@@ -1,11 +1,13 @@
 const express = require('express')
 const morgan = require('morgan')
+const cors = require('cors')
 require('dotenv').config()
 const {expressjwt} = require('express-jwt')
 const app = express()
 const mongoose = require('mongoose')
 app.use(express.json())
 app.use(morgan('dev'))
+app.use(cors())
 mongoose.set('strictQuery', true)
 mongoose.connect(`mongodb+srv://pauldamico:${process.env.MONGOSECRET}@cluster0.hhpaaeu.mongodb.net/dogtracker?retryWrites=true&w=majority`, ()=>{  
     console.log("Connected to DB")
