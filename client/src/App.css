@@ -6,7 +6,7 @@
   font-family: 'Arvo', serif;
 }
 html {
-  background-color: rgb(235, 234, 233);
+  background-image:url('./images/snowbg.jpg')
 }
 .login-error{
   font-size:20px;
@@ -18,6 +18,33 @@ a {
   text-decoration: none;
 }
 .profile-form-div {
+  padding-top:5%;
+  margin-left:10%;
+  display: flex;
+  justify-content: left;
+}
+.profile-div {
+  padding:1%;
+ background: rgba(215, 213, 213, 0.593);
+ box-shadow: 1px 3px 9px 1px rgba(0, 0, 255, 0.33);
+  margin-top: 5%;
+  margin-left:10%;
+  width: fit-content;
+  display: flex;
+  justify-content: left;
+}
+.add-profile-from{
+  padding:1%;
+ background: rgba(215, 213, 213, 0.593);
+ box-shadow: 1px 3px 9px 1px rgba(0, 0, 255, 0.33);
+  margin-top: 5%;
+  margin-left:10%;
+  width: fit-content; 
+}
+
+.addpet {
+  margin-top: 2%;
+  margin-left:10%;
   display: flex;
   justify-content: left;
 }
@@ -29,6 +56,7 @@ a {
   align-items: center;
 }
 .auth-form{
+  
   padding: 1%;
   width:40%;
   text-align: center;
@@ -45,12 +73,14 @@ a {
   margin-top:20%;
 width:50%
 }
-
-.main-profile-div2{
+.main-profile-div{
   
-  display: flex;
-  background-color: black;
+height:90vh;
+  background-image:url('./images/snowbg.jpg');
+background-size:cover;
+background-attachment: fixed;
 }
+
 
 .nav-div {
   display: flex;
@@ -58,7 +88,7 @@ width:50%
   justify-content: space-evenly;
 }
 .nav-main-div {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.618);
 }
 .nav-main-div > button {
   margin: 1px;
@@ -219,16 +249,7 @@ align-items: center;
 .treat-title {
   text-align: center;
 }
-.profile-div {
-  padding: 20px;
-  display: flex;
-  justify-content: left;
-}
-.addpet {
-  margin-left: 20px;
-  display: flex;
-  justify-content: left;
-}
+
 
 @media only screen and (max-width: 1365px) {
   * {

@@ -43,7 +43,7 @@ export default function DogAddForm(props) {
 
   return (
     <div>
-      <form onSubmit={updateSubmitHandler}>
+      <form className="add-profile-from" onSubmit={updateSubmitHandler}>
         <div>
           <div>
           <h3>Name</h3>
