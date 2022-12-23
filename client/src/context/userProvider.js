@@ -87,7 +87,7 @@ function resetError(){
 
     
  
-  },[] );
+  },[addTracker] );
 
   return (
     <UserContext.Provider value={{loginError, ...currentUser.user, token, signup, login, logout, currentUser, resetError }}>
