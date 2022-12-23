@@ -55,7 +55,7 @@ export default function Dog(props) {
             </div>
           </div>
           <div>
-            <img alt="dog" />
+            
           </div>
           <button onClick={updateToggler}>Update Info</button>
           <button onClick={()=>{deleteProfile(_id)}}>Delete</button>
