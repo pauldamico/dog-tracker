@@ -36,7 +36,7 @@ export function ProfileContextProvider(props) {
 
   function addNewProfile(dogInfo) {
     userAxios
-      .post(`https://backend-lw9q.onrender.com/api/profile/add`, dogInfo)
+      .post(`backend-lw9q.onrender.com/api/profile/add`, dogInfo)
       .then((res) => {
         console.log(res.data);
         const { dogName, breed, age, weight, birthday, vet, _id } = res.data;
@@ -53,13 +53,13 @@ export function ProfileContextProvider(props) {
 
   function getUserProfile() {
     userAxios
-      .get("https://backend-lw9q.onrender.com/api/profile")
+      .get("backend-lw9q.onrender.com/api/profile")
       .then((res) => setProfiles((prev) => res.data))
       .catch((err) => console.log(err));
   }
 
   function deleteProfile (profileId){
-userAxios.delete(`https://backend-lw9q.onrender.com/api/profile/delete/${profileId}`)
+userAxios.delete(`backend-lw9q.onrender.com/api/profile/delete/${profileId}`)
 .then(res=>setProfiles(profiles.filter(profile=>profile._id !== profileId)))
 .catch(res=>console.log(res.data))
   }
