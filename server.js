@@ -15,10 +15,10 @@ app.get("/", (req, res, next)=>{
     res.send("Welcome to the dog tracker API")
 })
 
-app.use('https://backend-lw9q.onrender.com/auth', require("./routes/authRouter.js"))
-app.use('https://backend-lw9q.onrender.com/api', expressjwt({secret:process.env.SECRET, algorithms:["HS256"]}))
-app.use('https://backend-lw9q.onrender.com/api/profile', require('./routes/profileRouter.js'))
-app.use('https://backend-lw9q.onrender.com/api/tracker', require('./routes/trackerRouter.js'))
+app.use('/auth', require("./routes/authRouter.js"))
+app.use('/api', expressjwt({secret:process.env.SECRET, algorithms:["HS256"]}))
+app.use('/api/profile', require('./routes/profileRouter.js'))
+app.use('/api/tracker', require('./routes/trackerRouter.js'))
 
 app.use((err, req, res, next)=>{
 console.log(err)
