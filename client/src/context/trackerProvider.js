@@ -37,13 +37,13 @@ const [trackerInfo, setTrackerInfo] = useState([""])
   function addTracker (){
   
  
-    userAxios.post('backend-lw9q.onrender.com/api/tracker/add', initValue)
+    userAxios.post('/api/tracker/add', initValue)
     .then(res=>setTrackerInfo(prev=>[res.data]))
     .catch(err=>()=>{}) 
   }
 
   function updateSelectedTime (timeId, selected, name, trackerId, frontEndName){   // dont need to reverse this (its only for times)  
-    userAxios.put(`backend-lw9q.onrender.com/api/tracker/${name}/${timeId}`, {selected})
+    userAxios.put(`/api/tracker/${name}/${timeId}`, {selected})
     .then(res=>{
     setTrackerInfo( prev=>prev.map(item=>item._id===trackerId ? {...item, [frontEndName]:item[frontEndName].map(time=>time._id === timeId ? {...time, selected} : {...time})}: {...item} ))
 
@@ -56,14 +56,14 @@ const [trackerInfo, setTrackerInfo] = useState([""])
  
 
     function getTrackerData (){
-        userAxios.get('backend-lw9q.onrender.com/api/tracker')
+        userAxios.get('/api/tracker')
         .then(res=>{setTrackerInfo(prev=>res.data.sort((a, b)=>b.dateOrder - a.dateOrder))  //changed this last added .sort    
         })
         .catch(err=>console.log(err))        
     }
     
 function updateFedPet (fedValue, trackerId, fedName){
-  userAxios.put(`backend-lw9q.onrender.com/api/tracker/update/${trackerId}`, {[fedName]:fedValue,})
+  userAxios.put(`/api/tracker/update/${trackerId}`, {[fedName]:fedValue,})
   .then(res=>{setTrackerInfo(prev=>prev.map(item=>item._id === trackerId ? {...item, [fedName]:res.data[fedName]} : {...item}))
 })
   .catch(err=>console.log(err))
@@ -71,7 +71,7 @@ function updateFedPet (fedValue, trackerId, fedName){
 
 function submitGrooming (date, trackerId){
  
-  userAxios.put(`backend-lw9q.onrender.com/api/tracker/update/${trackerId}`, {groomed:date})
+  userAxios.put(`/api/tracker/update/${trackerId}`, {groomed:date})
   .then(res=>{setTrackerInfo(prev=>prev.map(item=>item._id === trackerId ? {...item, groomed:res.data.groomed} : {...item}))
 })
   .catch(err=>console.log(err))
@@ -79,7 +79,7 @@ function submitGrooming (date, trackerId){
 }
 
 function submitMedical (medicalInfo, trackerId){
-  userAxios.put(`backend-lw9q.onrender.com/api/tracker/update/${trackerId}`, {...medicalInfo})
+  userAxios.put(`/api/tracker/update/${trackerId}`, {...medicalInfo})
   .then(res=>{setTrackerInfo(prev=>prev.map(item=>item._id === trackerId ? {...item, medicalNotes:res.data.medicalNotes, vetApt:res.data.vetApt} : {...item}))
 })
   .catch(err=>console.log(err))
