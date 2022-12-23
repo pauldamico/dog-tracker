@@ -17,7 +17,7 @@ export function UserContextProvider(props) {
   };
   const [currentUser, setCurrentUser] = useState(initUser);
   const [loginError, setLoginError] = useState("")
-  const { _id: userId, username } = currentUser.user;
+  const { userId: _id, username } = currentUser.user;
   const { token } = currentUser;
   const navigate = useNavigate();
 
