@@ -10,13 +10,15 @@ export function UserContextProvider(props) {
   const {getTrackerData, addTracker} = useContext(TrackerContext)
 
   const initUser = {
-    user: JSON.parse(localStorage.getItem("user")) || {},
-    token: localStorage.getItem("token") || "",
+    user:  {_id:"", username:""},
+    token:  "",
+    // user: JSON.parse(localStorage.getItem("user")) || {},
+    // token: localStorage.getItem("token") || "",
   };
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState(initUser);
   const [loginError, setLoginError] = useState("")
-  // const { _id: userId, username } = currentUser.user;
-  // const { token } = currentUser;
+  const { _id: userId, username } = currentUser.user;
+  const { token } = currentUser;
   const navigate = useNavigate();
 
   function signup(newUser) {
