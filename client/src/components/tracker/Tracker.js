@@ -53,7 +53,8 @@ console.log("test")
           </div>
           </div>
        <div className="tracker-medical-div">    
-        <Medical medicalNotes={medicalNotes} vetApt={vetApt} trackerId={trackerId}/>
+        <Medical vetApt={vetApt} trackerId={trackerId}/>
+        {/* medicalNotes={medicalNotes}  */}
         </div>
         <div className="tracker-grooming-div">        
         <Grooming groomed={groomed} trackerId={trackerId}/>

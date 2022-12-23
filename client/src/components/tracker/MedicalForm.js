@@ -25,8 +25,9 @@ setMedicalInfo(prev=>({...prev, [name]:value}))
       <form className="vetapt-form-div" onSubmit={submitHandler}>
         <section>Next Appointment</section>
         <input type = "date" name="vetApt" onChange={changeHandler} value={medicalInfo.vetApt}  />
-        <section>Notes</section>
-        <textarea className="text-input-notes" rows="3" cols="30" maxlength= "70" name = "medicalNotes" onChange={changeHandler} type="text" value={medicalInfo.medicalNotes} />
+        {/* <section>Notes</section> */}
+        {/* <textarea className="text-input-notes" rows="3" cols="30" maxlength= "70" name = "medicalNotes" onChange={changeHandler} type="text" value={medicalInfo.medicalNotes} />
+        */}
         <button>Save</button>
       </form>
     </div>

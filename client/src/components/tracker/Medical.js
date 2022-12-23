@@ -15,17 +15,17 @@ export default function Medical(props) {
 // findNewestDate ()
 //   trackerInfo.find(item=>item.vetApt.length > 1 ).vetApt 
   return (
-    <div >
+    <div className="vet-div">
 {toggle ?
       <div onClick={toggler}>
-    <h1>Medical/Vet</h1>
+    <h1>Vet Appointment</h1>
         <div className="next-medical-appointment-div">
-          <section>Next Appointment</section>
+          {/* <section>Next Appointment</section> */}
           <section className="vetapt-date">{trackerInfo.find(item=>item.vetApt.length > 1 ) ? trackerInfo.find(item=>item.vetApt.length > 1 ).vetApt : ""}</section>
         </div>        
         <div className="medical-notes-div">
         
-          <section>Notes</section>
+          {/* <section>Notes</section> */}
            
         <section className="vetapt-notes">{trackerInfo.find(item=>item.medicalNotes.length > 1 ) ? trackerInfo.find(item=>item.medicalNotes.length > 1 ).medicalNotes : ""}</section>
         </div>    
