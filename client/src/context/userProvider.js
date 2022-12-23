@@ -17,7 +17,7 @@ export function UserContextProvider(props) {
   };
   const [currentUser, setCurrentUser] = useState(initUser);
   const [loginError, setLoginError] = useState("")
-  const { userId: _id, username } = currentUser.user;
+  const {_id, username } = currentUser.user;
   const { token } = currentUser;
   const navigate = useNavigate();
 
@@ -85,7 +85,7 @@ function resetError(){
   },[] );
 
   return (
-    <UserContext.Provider value={{loginError, username, token, signup, login, userId, logout, currentUser, resetError }}>
+    <UserContext.Provider value={{loginError, username, token, signup, login, userId:_id, logout, currentUser, resetError }}>
       {props.children}
     </UserContext.Provider>
   );
