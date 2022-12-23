@@ -21,7 +21,7 @@ const {token} = useContext(UserContext)
 
 <Nav/>
 <Routes>
-  <Route path ='/' element={token ? <Navigate to='/profile'/> : <Navigate to='/login'/>}/>
+  <Route path ='/' element={token ? <Navigate to='/tracker'/> : <Navigate to='/login'/>}/>
 <Route path='/login' element={<Auth/>}/>
 <Route path='/profile' element={<ProtectedRoute token={token} loc="/"><DogProfile/></ProtectedRoute>}/>
 <Route path='/tracker' element={<ProtectedRoute token={token} loc="/"><TrackerList/></ProtectedRoute>}/>
