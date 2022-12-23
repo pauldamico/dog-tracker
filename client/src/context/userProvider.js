@@ -29,7 +29,7 @@ export function UserContextProvider(props) {
 
   function signup(newUser) {
     axios
-      .post("", newUser)
+      .post("https://backend-lw9q.onrender.com/auth/signup", newUser)
       .then((res) => {
         const { user, token } = res.data;
         console.log(res.data)
@@ -48,7 +48,7 @@ export function UserContextProvider(props) {
   }
   function login(userInfo) {
     axios
-      .post("", userInfo)
+      .post("https://backend-lw9q.onrender.com/auth/login", userInfo)
       .then((res) => {
         const { user, token } = res.data;
 console.log(res.data)
