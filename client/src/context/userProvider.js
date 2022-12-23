@@ -10,7 +10,7 @@ export function UserContextProvider(props) {
   const {getTrackerData, addTracker} = useContext(TrackerContext)
 
   const initUser = {
-    user: JSON.parse(localStorage.getItem("user")) || {},
+    user: JSON.parse(localStorage.getItem("user"))? JSON.parse(localStorage.getItem("user")) : {},
     token: localStorage.getItem("token") || "",
   };
   const [currentUser, setCurrentUser] = useState(initUser);
