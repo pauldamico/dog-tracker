@@ -26,8 +26,8 @@ export default function Auth(props) {
   };
 
   return (
-    <div>
-      <form onSubmit={updateUserHandler}>
+    <div className="auth-main-div">
+      <form className="auth-form" onSubmit={updateUserHandler}>
         <label>Username</label>
         <input name="username" onChange={userChangeHandler} type="text" />
         <label>Password</label>

@@ -14,12 +14,12 @@ export default function DogProfile() {
   }
 
   return (
-    <div>
+    <div className="main-profile-div">
 
 
       <div>
         {profiles.length < 1 && (
-          <div className="profile-form-div">
+          <div>
             <DogAddForm
               submitUpdatedProfile={submitUpdatedProfile}
               addNewProfile={addNewProfile}
