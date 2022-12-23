@@ -112,7 +112,7 @@ export default function DogAddForm(props) {
             </div>
           </div>
           <div>
-            <img alt="dogadd"/>
+            
           </div>
         </div>
         <button>Save Info</button>
