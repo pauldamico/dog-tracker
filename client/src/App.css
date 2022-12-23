@@ -234,6 +234,24 @@ align-items: center;
   * {
     font-size: 15px;
   }
+
+  .auth-form{
+    padding: 1%;
+    width:90%;
+    text-align: center;
+    box-shadow: 1px 5px 6px 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    height: 50%;
+    align-items: center;
+  
+  }
+
+  .auth-form>input{
+    max-width: 200px;
+    width:70%;
+  }
   .main-tracker-div2 {
     border-radius: 10px;
     background-color: white;
@@ -397,6 +415,7 @@ max-width: 300px;
   width: fit-content;
  background-color: blue;
 }
+
 
 }
 
