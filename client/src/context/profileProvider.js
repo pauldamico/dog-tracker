@@ -51,13 +51,14 @@ console.log(data)
         const { dogName, breed, age, weight, birthday, vet, _id } = res.data;
         setProfiles((prev) => [
           ...prev,
-          { dogName: dogName, breed, age, weight, birthday, vet, _id },
+          { ...dogInfo },
         ]);
 
         console.log(profiles);
       })
 
       .catch((err) => console.log(err));
+      getUserProfile()
   }
 
   function getUserProfile() {
