@@ -40,7 +40,13 @@ console.loog("test")
           </div>
           {/* <TakeDogOut submitTime={submitBathroomTime} hours={hours} trackerId={_id}/> */}
         </div >
-        <div className="tracker-time-div">{date}<button className="add-new-day" onClick={addToday}>Add Today</button></div>
+        <div className="tracker-time-div">
+          
+          {date}
+        
+        {date !== todaysDate && <button className="add-new-day" onClick={addToday}>Add Today</button>}
+        
+        </div>
         <div className="tracker-fed-pet-div">
         <h1>Fed dog</h1>
         <FedPet fedBreakfast={fedBreakfast} fedLunch={fedLunch} fedDinner={fedDinner} trackerId={trackerId}/>
