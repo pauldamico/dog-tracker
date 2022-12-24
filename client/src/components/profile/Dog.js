@@ -29,29 +29,31 @@ export default function Dog(props) {
   return (
     <div className="profile-div">
       {updateToggled && (
-        <div>
-          <h3>Pet Name</h3>
-          <div>{dogName}</div>
+        <div className="dog-profile-text">
+          <div>
+          <h3 className="profile-title">Pet Name</h3>
+          <section className="profile-section">{dogName}</section>
+          </div>
           <div>
             <div>
-              <h3>Breed</h3>
-              <section>{breed}</section>
+              <h3 className="profile-title">Breed</h3>
+              <section className="profile-section">{breed}</section>
             </div>
             <div>
-              <h3>Age</h3>
-              <section>{age}</section>
+              <h3 className="profile-title">Age</h3>
+              <section className="profile-section">{age}</section>
             </div>
             <div>
-              <h3>Weight</h3>
-              <section>{weight}</section>
+              <h3 className="profile-title">Weight</h3>
+              <section className="profile-section">{weight}</section>
             </div>
             <div>
-              <h3>Birthday</h3>
-              <section>{birthday}</section>
+              <h3 className="profile-title">Birthday</h3>
+              <section className="profile-section">{birthday}</section>
             </div>
             <div>
-              <h3>Vet Info</h3>
-              <section>{vet}</section>
+              <h3 className="profile-title">Vet Info</h3>
+              <section className="profile-section">{vet}</section>
             </div>
           </div>
           <div>
