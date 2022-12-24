@@ -76,7 +76,7 @@ a {
   box-shadow: 1px 5px 6px 0px;
   display: flex;
   flex-direction: column;
-  background-color: grey;
+  background-color: rgba(0, 139, 232, 0.38);
   height: 50%;
   align-items: center;
 
@@ -283,8 +283,8 @@ align-items: center;
     box-shadow: 1px 5px 6px 0px;
     display: flex;
     flex-direction: column;
-    background-color: grey;
-    height: 50%;
+  
+    height: 70%;
     align-items: center;
   
   }
