@@ -1,10 +1,11 @@
-import React, {useContext, useRef, useState } from "react";
+import React, {useContext, useRef, useState, useEffect } from "react";
 import { TrackerContext } from "../../context/trackerProvider";
 import Tracker from "./Tracker"
 export default function TrackerList (){
    
-    const {trackerInfo} = useContext(TrackerContext)
+    const {trackerInfo, todaysDate, addTracker} = useContext(TrackerContext)
     const count = useRef(0)
+    const countUseEffect = useRef(0)
   
 
 const [index, setIndex] = useState(0)
@@ -13,13 +14,13 @@ const [index, setIndex] = useState(0)
   if(count.current !== trackerInfo.length - 1){
     count.current += 1
     setIndex(prev=>count.current)
-    console.log(count)
+    // console.log(count)
   }
    }
 
 
    function showNextDay(){   
-    console.log(count)
+    // console.log(count)
     if(count.current === trackerInfo.length - 1){
 
     }
@@ -40,7 +41,10 @@ const [index, setIndex] = useState(0)
    
     //   }
     // }, [])
-   
+    // console.log(console.log(trackerInfo.find(item=>item.date === todaysDate)))
+    // console.log(todaysDate)
+
+
 
     return (<div>
    {trackerInfo && <div className="tracker-list-div">

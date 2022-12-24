@@ -1,4 +1,4 @@
-import React,{useState, createContext, useContext} from "react";
+import React,{useState, createContext, useContext, useEffect} from "react";
 import { ProfileContext } from "./profileProvider";
 export const TrackerContext = createContext()
 export  function TrackerContextProvider(props){
@@ -29,11 +29,6 @@ const [trackerInfo, setTrackerInfo] = useState([""])
 
 
 
-
-
-
-
-
   function addTracker (){
   
  
@@ -55,7 +50,7 @@ const [trackerInfo, setTrackerInfo] = useState([""])
 
  
 
-    function getTrackerData (){
+    function getTrackerData (){    
         userAxios.get('https://backend-lw9q.onrender.com/api/tracker')
         .then(res=>{setTrackerInfo(prev=>res.data.sort((a, b)=>b.dateOrder - a.dateOrder))  //changed this last added .sort    
         })
@@ -91,7 +86,7 @@ function submitMedical (medicalInfo, trackerId){
 
 
 
-return (<TrackerContext.Provider value={{submitMedical, updateFedPet, updateSelectedTime, getTrackerData, addTracker,todaysDate,  initValue, trackerInfo, submitGrooming}}>
+return (<TrackerContext.Provider value={{todaysDate, submitMedical, updateFedPet, updateSelectedTime, getTrackerData, addTracker,todaysDate,  initValue, trackerInfo, submitGrooming}}>
 {props.children}
 </TrackerContext.Provider>)
 

@@ -8,10 +8,9 @@ import { TrackerContext } from "../../context/trackerProvider";
 export default function Tracker(props) {
 
 
-console.log("test")
+
   const { _id:trackerId, bathroomAM, bathroomPM, treatsAM, treatsPM, fedBreakfast, fedLunch, fedDinner, date, medicalNotes, vetApt, groomed } = props;
   const {updateSelectedTime} = useContext(TrackerContext);
-
 
 
   return (

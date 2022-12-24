@@ -51,19 +51,19 @@ export function UserContextProvider(props) {
       .post("https://backend-lw9q.onrender.com/auth/login", userInfo)
       .then((res) => {
         const { user, token } = res.data;
-console.log(res.data)
+
         localStorage.setItem("user", JSON.stringify(res.data.user));
         localStorage.setItem("token", res.data.token);
         setCurrentUser((prev) => ({ ...prev, user, token }));      
         navigate("/profile");
         
           token && getUserProfile();
-          token && addTracker()
+          // token && addTracker()
           token && getTrackerData()
         
       })
       .catch((err) => setLoginError(err.response.data.errMsg));      
-      console.log(loginError)
+     
   }
 
   function logout (){
@@ -80,14 +80,14 @@ function resetError(){
   useEffect(() => {
     count.current = count.current + 1
     
- 
+
       token && getUserProfile()      
-      token && count.current === 2 && addTracker() 
+      // token && count.current === 2 && addTracker() 
       token && getTrackerData()
 
     
  
-  },[navigate] );
+  },[] );
 
   return (
     <UserContext.Provider value={{loginError, ...currentUser.user, token, signup, login, logout, currentUser, resetError }}>
