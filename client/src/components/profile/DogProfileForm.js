@@ -43,11 +43,13 @@ export default function DogProfileForm(props) {
       vet: updatedProfile.vet,
       _id: updatedProfile._id,
     };
+
+    submitUpdatedProfile(_id, updatedInfo)
   
-    userAxios
-      .put(`/api/profile/update/${_id}`, updatedInfo)
-      .then((res) => submitUpdatedProfile(_id, res.data))
-      .catch((err) => console.log(err));
+    // userAxios
+    //   .put(`/api/profile/update/${_id}`, updatedInfo)
+    //   .then((res) => submitUpdatedProfile(_id, res.data))
+    //   .catch((err) => console.log(err));
 
     //    submitUpdatedProfile(userId, updatedProfile. updatedProfile)
     //    {!dogName && addNewProfile(updatedProfile)}

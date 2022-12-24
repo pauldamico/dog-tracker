@@ -15,7 +15,16 @@ export function ProfileContextProvider(props) {
   const [profiles, setProfiles] = useState([]);
 
   function submitUpdatedProfile(id, data) {
-    console.log(data);
+
+console.log(data)
+
+    userAxios
+      .put(`/api/profile/update/${id}`, data)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+
+     
+
     setProfiles((prev) =>
       prev.map((profile) =>
         profile._id === id
