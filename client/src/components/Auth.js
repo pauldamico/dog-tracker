@@ -27,6 +27,8 @@ export default function Auth(props) {
 
   return (
     <div className="auth-main-div">
+     <h1>Track My Dog</h1> 
+
       <form className="auth-form" onSubmit={updateUserHandler}>
         <label>Username</label>
         <input name="username" onChange={userChangeHandler} type="text" />

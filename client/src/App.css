@@ -63,10 +63,13 @@ a {
 }
 .auth-main-div{
   display: flex;
-  
+  flex-direction: column;
   height: 50vh;
   justify-content: center;
   align-items: center;
+}
+.auth-main-div>h1{
+margin-bottom: 1%;
 }
 .auth-form{
   

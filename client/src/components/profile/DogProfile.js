@@ -17,7 +17,6 @@ export default function DogProfile() {
   return (
     <div className="main-profile-div">
 
-
       <div>
         {profiles.length < 1 && (
           <div>
