@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { nanoid } from "nanoid";
 import { UserContext } from "../../context/userProvider.js";
 import DogAddForm from "./DogAddForm.js";
 import { ProfileContext } from "../../context/profileProvider.js";
@@ -36,7 +37,7 @@ export default function DogProfile() {
         {profiles.map((profile) => (
           <Dog
             userAxios={userAxios}
-            key={profile._id}
+            key={nanoid()}
             {...profile}
             submitUpdatedProfile={submitUpdatedProfile}
             addNewProfile={addNewProfile}
