@@ -9,9 +9,15 @@ export default function Tracker(props) {
 
 
 
-  const { _id:trackerId, bathroomAM, bathroomPM, treatsAM, treatsPM, fedBreakfast, fedLunch, fedDinner, date, medicalNotes, vetApt, groomed } = props;
-  const {updateSelectedTime} = useContext(TrackerContext);
+  const { _id:trackerId, bathroomAM, bathroomPM, treatsAM, treatsPM, fedBreakfast, fedLunch, fedDinner,  date, medicalNotes, vetApt, groomed } = props;
+  const {updateSelectedTime, addNewDay, todaysDate} = useContext(TrackerContext);
 
+  function addToday (){
+if(date !== todaysDate){addNewDay()
+console.loog("test")
+}
+    // addTracker()
+  }
 
   return (
     <div className="main-tracker-div1">
@@ -32,7 +38,7 @@ export default function Tracker(props) {
           </div>
           {/* <TakeDogOut submitTime={submitBathroomTime} hours={hours} trackerId={_id}/> */}
         </div >
-        <div className="tracker-time-div">{date}</div>
+        <div className="tracker-time-div">{date}<button className="add-new-day" onClick={addToday}>Add Today</button></div>
         <div className="tracker-fed-pet-div">
         <h1>Fed dog</h1>
         <FedPet fedBreakfast={fedBreakfast} fedLunch={fedLunch} fedDinner={fedDinner} trackerId={trackerId}/>

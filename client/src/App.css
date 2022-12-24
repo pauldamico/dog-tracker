@@ -224,14 +224,23 @@ align-items: center;
   background-color: blue;
 }
 .tracker-time-div {
-  font-family: 'Anton', sans-serif;
-  margin-top: 5%;
-  font-size: 40px;
+  display: flex;
+justify-content: center;
+align-items: center;
+  font-size: 28px;
+  margin-top: 5px;
   text-align: center;
-  grid-column: 8/14;
-  grid-row: 1/7;
+  grid-column: 1/-1;
+  grid-row: 1/2;
   z-index: 100;
+  gap: 1%;
 }
+
+.add-new-day{
+  
+  font-size: 10px;
+  height: fit-content;
+    }
 
 .previousNext-div {
   display: flex;
@@ -288,6 +297,7 @@ align-items: center;
     align-items: center;
   
   }
+
   .vet-div{
     display: flex;
     justify-content: center;
@@ -351,13 +361,23 @@ align-items: center;
   }
 
   .tracker-time-div {
+    display: flex;
+  justify-content: center;
+  align-items: center;
     font-size: 18px;
     margin-top: 5px;
     text-align: center;
     grid-column: 1/-1;
     grid-row: 1/2;
     z-index: 100;
+    gap: 1%;
   }
+
+  .add-new-day{
+  
+    font-size: 10px;
+    height: fit-content;
+      }
   .next-medical-appointment-div{
     display: flex;
     flex-direction: column;
@@ -447,13 +467,23 @@ max-width: 300px;
 }
 
 .tracker-time-div {
-  font-size: 10px;
+  display: flex;
+justify-content: center;
+align-items: center;
+  font-size: 18px;
   margin-top: 5px;
   text-align: center;
   grid-column: 1/-1;
   grid-row: 1/2;
   z-index: 100;
+  gap: 1%;
 }
+
+.add-new-day{
+
+  font-size: 10px;
+  height: fit-content;
+    }
 .next-medical-appointment-div{
   display: flex;
   flex-direction: column;

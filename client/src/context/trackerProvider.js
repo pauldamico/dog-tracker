@@ -31,11 +31,19 @@ const [trackerInfo, setTrackerInfo] = useState([""])
 
   function addTracker (){
   
- 
+ console.log("test")
     userAxios.post('https://backend-lw9q.onrender.com/api/tracker/add', initValue)
     .then(res=>setTrackerInfo(prev=>[res.data]))
     .catch(err=>()=>{}) 
   }
+
+  function addNewDay (){
+  
+    console.log("test")
+       userAxios.post('https://backend-lw9q.onrender.com/api/tracker/add', initValue)
+       .then(res=>setTrackerInfo(prev=>[...prev, res.data].reverse()))
+       .catch(err=>()=>{}) 
+     }
 
   function updateSelectedTime (timeId, selected, name, trackerId, frontEndName){   // dont need to reverse this (its only for times)  
     userAxios.put(`https://backend-lw9q.onrender.com/api/tracker/${name}/${timeId}`, {selected})
@@ -86,7 +94,7 @@ function submitMedical (medicalInfo, trackerId){
 
 
 
-return (<TrackerContext.Provider value={{todaysDate, submitMedical, updateFedPet, updateSelectedTime, getTrackerData, addTracker,todaysDate,  initValue, trackerInfo, submitGrooming}}>
+return (<TrackerContext.Provider value={{submitMedical,addNewDay, updateFedPet, updateSelectedTime, getTrackerData, addTracker,todaysDate,  initValue, trackerInfo, submitGrooming}}>
 {props.children}
 </TrackerContext.Provider>)
 
