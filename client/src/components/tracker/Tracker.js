@@ -1,4 +1,4 @@
-import React, {useContext } from "react";
+import React, {useContext, useEffect } from "react";
 import enzofield from "../../images/enzofield.jpg"
 import FedPet from "./FedPet";
 import Grooming from "./Grooming";
@@ -10,7 +10,7 @@ export default function Tracker(props) {
 
 
   const { _id:trackerId, bathroomAM, bathroomPM, treatsAM, treatsPM, fedBreakfast, fedLunch, fedDinner,  date, medicalNotes, vetApt, groomed } = props;
-  const {updateSelectedTime, addNewDay, todaysDate} = useContext(TrackerContext);
+  const {updateSelectedTime,getTrackerData, addNewDay, todaysDate} = useContext(TrackerContext);
 
   function addToday (){
 if(date !== todaysDate){addNewDay()
@@ -18,6 +18,8 @@ console.loog("test")
 }
     // addTracker()
   }
+
+  useEffect(()=>{getTrackerData()},[])
 
   return (
     <div className="main-tracker-div1">
