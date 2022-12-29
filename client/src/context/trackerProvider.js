@@ -2,6 +2,8 @@ import React,{useState, createContext, useContext, useEffect} from "react";
 import { ProfileContext } from "./profileProvider";
 export const TrackerContext = createContext()
 export  function TrackerContextProvider(props){
+
+
     const date = new Date()
     const todaysDate = `${date.getMonth() + 1} ${date.getDate()} ${date.getFullYear()}`
     const d = new Date()
@@ -20,20 +22,18 @@ const {userAxios} = useContext(ProfileContext)
        vetApt:"",
        groomed:"",
        date:todaysDate,
-       dateOrder:time
-
-      
+       dateOrder:time      
    }
 
 const [trackerInfo, setTrackerInfo] = useState([""])
-
+const [loading, setLoading] = useState(false)
 
 
   function addTracker (){
-  
- console.log("test")
+
+
     userAxios.post('https://backend-lw9q.onrender.com/api/tracker/add', initValue)
-    .then(res=>setTrackerInfo(prev=>[res.data]))
+    .then(res=>setTrackerInfo(prev=>[res.data]))  
     .catch(err=>()=>{}) 
   }
 
@@ -59,9 +59,12 @@ const [trackerInfo, setTrackerInfo] = useState([""])
  
 
     function getTrackerData (){    
+      setLoading(true)  
         userAxios.get('https://backend-lw9q.onrender.com/api/tracker')
-        .then(res=>{setTrackerInfo(prev=>res.data.sort((a, b)=>b.dateOrder - a.dateOrder))  //changed this last added .sort    
+        .then(res=>{           
+          setTrackerInfo(prev=>res.data.sort((a, b)=>b.dateOrder - a.dateOrder))  //changed this last added .sort    
         })
+        .then(res=>setLoading(false))
         .catch(err=>console.log(err))        
     }
     
@@ -94,7 +97,7 @@ function submitMedical (medicalInfo, trackerId){
 
 
 
-return (<TrackerContext.Provider value={{submitMedical,addNewDay, updateFedPet, updateSelectedTime, getTrackerData, addTracker,todaysDate,  initValue, trackerInfo, submitGrooming}}>
+return (<TrackerContext.Provider value={{submitMedical,addNewDay, loading, updateFedPet, updateSelectedTime, getTrackerData, addTracker,todaysDate,  initValue, trackerInfo, submitGrooming}}>
 {props.children}
 </TrackerContext.Provider>)
 

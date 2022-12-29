@@ -10,11 +10,10 @@ export default function Tracker(props) {
 
 
   const { _id:trackerId, bathroomAM, bathroomPM, treatsAM, treatsPM, fedBreakfast, fedLunch, fedDinner,  date, medicalNotes, vetApt, groomed } = props;
-  const {updateSelectedTime,getTrackerData, addNewDay, todaysDate} = useContext(TrackerContext);
+  const {loading, updateSelectedTime,getTrackerData, addNewDay, todaysDate} = useContext(TrackerContext);
 
   function addToday (){
 if(date !== todaysDate){addNewDay()
-console.loog("test")
 }
     // addTracker()
   }
@@ -22,12 +21,14 @@ console.loog("test")
   useEffect(()=>{getTrackerData()},[])
 
   return (
-    <div className="main-tracker-div1">
-    
+    <div className="loading-div">
+      
+   <div className="main-tracker-div1">
+   
       <div className="main-tracker-div2">
         <div className="tracker-took-out-pet-div">
           <h1 className="took-out-pet-title">Took dog out</h1>
-          
+         
           <section>AM</section> 
           <div className="time-div">        
           
@@ -75,6 +76,7 @@ console.loog("test")
         <img src ={enzofield} alt="trackerBackground" className="backgroundImg" />
       </div>
       
+    </div>
     </div>
   );
 }
