@@ -21,13 +21,14 @@ export function UserContextProvider(props) {
 
 
   const [currentUser, setCurrentUser] = useState(initUser);
-
+const [loading, setLoading] = useState(false)
   const [loginError, setLoginError] = useState("")
   // const { _id: userId, username } = currentUser.user;
   const { token } = currentUser;
   const navigate = useNavigate();
 
   function signup(newUser) {
+    setLoading(true)
     axios
       .post("https://backend-lw9q.onrender.com/auth/signup", newUser)
       .then((res) => {
@@ -41,12 +42,15 @@ export function UserContextProvider(props) {
         token && addTracker()
         token && getTrackerData()       
       })
-   
-      .catch((err) => setLoginError(err.response.data.errMsg));
+      .then(res=> setLoading(false))
+      .catch((err) => {
+        setLoading(false)
+        setLoginError(err.response.data.errMsg)});
       console.log(loginError)
   
   }
   function login(userInfo) {
+    setLoading(true)
     axios
       .post("https://backend-lw9q.onrender.com/auth/login", userInfo)
       .then((res) => {
@@ -62,7 +66,10 @@ export function UserContextProvider(props) {
           token && getTrackerData()
         
       })
-      .catch((err) => setLoginError(err.response.data.errMsg));      
+      .then(res=> setLoading(false))
+      .catch((err) =>{ 
+        setLoading(false)
+        setLoginError(err.response.data.errMsg)});      
      
   }
 
@@ -90,7 +97,7 @@ function resetError(){
   },[navigate] );
 
   return (
-    <UserContext.Provider value={{loginError, ...currentUser.user, token, signup, login, logout, currentUser, resetError }}>
+    <UserContext.Provider value={{loginError, ...currentUser.user, token, loading, signup, login, logout, currentUser, resetError }}>
       {props.children}
     </UserContext.Provider>
   );

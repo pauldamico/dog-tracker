@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/userProvider";
 export default function Auth(props) {
-  const { signup, login, loginError, resetError } = useContext(UserContext);
+  const { loading, signup, login, loginError, resetError } = useContext(UserContext);
 
   const initUserInfo = { username: "", password: "" };
   const [userInfo, setUserInfo] = useState(initUserInfo);
@@ -27,9 +27,10 @@ export default function Auth(props) {
 
   return (
     <div className="auth-main-div">
+    
      <h1>Track My Dog</h1> 
-
-      <form className="auth-form" onSubmit={updateUserHandler}>
+     {loading && <div>Loading</div>}
+      { !loading && <form className="auth-form" onSubmit={updateUserHandler}>
         <label>Username</label>
         <input name="username" onChange={userChangeHandler} type="text" />
         <label>Password</label>
@@ -48,7 +49,7 @@ export default function Auth(props) {
           <section onClick={haveAccountToggler}>Go Back to Login</section>
           </div>
         }
-      </form>
+      </form>}
     </div>
   );
 }
