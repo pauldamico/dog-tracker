@@ -5,7 +5,7 @@ export  function TrackerContextProvider(props){
 
 
     const date = new Date()
-    const todaysDate = `${date.getMonth() + 1} ${date.getDate()} ${date.getFullYear()}`
+    const todaysDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
     const d = new Date()
 const time =d.getTime()
  

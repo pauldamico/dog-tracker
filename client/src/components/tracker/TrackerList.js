@@ -61,7 +61,7 @@ const [index, setIndex] = useState(0)
 <button style={{backgroundColor: index <= 0  ? "rgb(235, 234, 233)" : "white", border:"none" }} onClick={showNextDay}>{">"}</button>
 
 </div>
-{loading && <div className="loading-div"><div className="lds-dual-ring"></div>Loading<div  className="lds-dual-ring"></div></div>}
+{loading && <div className="loading-div"><div className="lds-dual-ring"></div></div>}
 </div>}
 
 

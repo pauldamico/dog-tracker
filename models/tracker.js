@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const date = new Date();
 const todaysDate = `${
   date.getMonth() + 1
-} ${date.getDate()} ${date.getFullYear()}`;
+}/${date.getDate()}/${date.getFullYear()}`;
 const d = new Date();
 const time = d.getTime();
 const trackerSchema = new Schema({
