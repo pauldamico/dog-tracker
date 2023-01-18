@@ -374,18 +374,14 @@ align-items: center;
   * {
     font-size: 15px;
   }
-  .profile-title{
-  
+  .profile-title{  
     font-size: 20px;
   }
-  .profile-section{
-  
+  .profile-section{  
     font-size: 15px;
   }
   .profile-div {
-
-    width: auto;
-
+    width: 500px;
   }
 
   .auth-form{
