@@ -27,7 +27,14 @@ html {
 a {
   color: black;
   text-decoration: none;
+  color: white;
+  font-size: 20px;
+	text-shadow: -1px 1px 2px #000,
+				  1px 1px 2px #000,
+				  1px -1px 0 #000,
+				  -1px -1px 0 #000;
 }
+
 
 .logout-div{
   margin-right:1%;
@@ -38,6 +45,20 @@ a {
 .logout-div>button{
   margin-top:1%;
 }
+.no-account-text{
+  margin-top: 10px;
+  font-size: 20px;
+}
+.no-account-text:hover{
+cursor:pointer;
+}
+.go-back-text{
+  margin-top: 10px;
+  font-size: 20px;
+}
+.go-back-text:hover{
+  cursor:pointer;
+  }
 .lds-dual-ring {
   display: inline-block;
   width: 80px;
@@ -120,7 +141,7 @@ background-color: rgba(240, 248, 255, 0.156);
   margin-top: 3%;
   margin-left:10%;
   width: 500px;
-  height:80vh;
+  height:75vh;
   display: flex;
   justify-content: left;
 }
@@ -141,7 +162,7 @@ background-color: rgba(240, 248, 255, 0.156);
 .add-profile-from{
   padding:1%;
  background: rgba(215, 213, 213, 0.593);
- box-shadow: 1px 3px 9px 1px rgba(0, 0, 255, 0.33);
+ box-shadow: 1px 3px 9px 1px rgba(8, 8, 9, 0.33);
   margin-top: 5%;
   margin-left:10%;
   width: fit-content; 
@@ -161,7 +182,13 @@ background-color: rgba(240, 248, 255, 0.156);
   align-items: center;
 }
 .auth-main-div>h1{
-margin-bottom: 1%;
+margin-bottom: 3%;
+color: white;
+	font-size: 40px;
+	text-shadow: -1px 1px 2px #000,
+				  1px 1px 2px #000,
+				  1px -1px 0 #000,
+				  -1px -1px 0 #000;
 }
 .auth-form{
   
@@ -171,15 +198,29 @@ margin-bottom: 1%;
   box-shadow: 1px 5px 6px 0px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 139, 232, 0.38);
-  height: 50%;
+  background: linear-gradient(61deg, #A9A597 16%, #717777 25%, #484A48 37%, #6D5D5D 66%, #736D6D 78%, #928D75 100%);
+  height: 70%;
   align-items: center;
 
 }
+.auth-form>label{
+  color: white;
+	font-size: 40px;
+	text-shadow: -1px 1px 2px #000,
+				  1px 1px 2px #000,
+				  1px -1px 0 #000,
+				  -1px -1px 0 #000;
+
+}
+
 
 .auth-form>button{
-  margin-top:20%;
+  margin-top:5%;
+  margin-bottom: 3%;
 width:50%
+}
+.auth-form>button:hover{
+  cursor: pointer;
 }
 .main-profile-div{
   
@@ -389,6 +430,11 @@ align-items: center;
     margin-top: 10px;
     font-size: 20px;
   }
+  
+  .go-back-text{
+    margin-top: 10px;
+    font-size: 20px;
+  }
   .profile-section{  
     font-size: 15px;
   }
@@ -409,6 +455,20 @@ align-items: center;
     height: 70%;
     align-items: center;
   
+  }
+  .auth-form>label{
+    color: white;
+	font-size: 20px;
+	text-shadow: -1px 1px 2px #000,
+				  1px 1px 2px #000,
+				  1px -1px 0 #000,
+				  -1px -1px 0 #000;
+    margin: 1%;
+    font-size: 16px;
+  }
+  .auth-form>button{
+    margin-top:3%;
+    font-size: 16px;
   }
 
   .vet-div{
@@ -516,7 +576,9 @@ max-width: 300px;
 *{
   font-size: 8px;
 }
-
+a{
+  font-size: 13px;
+}
 .add-dog-title{
   font-size: 20px;
 }
@@ -537,6 +599,27 @@ max-width: 300px;
   flex-direction: column;
   align-items: center;
 }
+.auth-main-div>h1{
+  margin-bottom: 3%;
+  color: white;
+    font-size: 20px;
+    text-shadow: -1px 1px 2px #000,
+            1px 1px 2px #000,
+            1px -1px 0 #000,
+            -1px -1px 0 #000;
+  }
+  .auth-form{
+    padding: 1%;
+    width:90%;
+    text-align: center;
+    box-shadow: 1px 5px 6px 0px;
+    display: flex;
+    flex-direction: column;
+  
+    height: 70%;
+    align-items: center;
+  
+  }
 .profile-title{
   
   font-size: 14px;
@@ -545,6 +628,22 @@ max-width: 300px;
 align-items: center;
   font-size: 10px;
   width:40%;
+}
+.auth-form>label{
+  color: white;
+font-size: 20px;
+text-shadow: -1px 1px 2px #000,
+        1px 1px 2px #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000;
+  margin: 1%;
+  font-size: 16px;
+}
+.no-account-text{
+  font-size: 10px;
+}
+.go-back-text{
+  font-size: 10px;
 }
 
 .main-tracker-div2 {

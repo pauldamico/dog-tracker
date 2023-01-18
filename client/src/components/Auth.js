@@ -46,7 +46,7 @@ export default function Auth(props) {
          : 
          <div>
             <section className="login-error">{loginError}</section>
-          <section onClick={haveAccountToggler}>Go Back to Login</section>
+          <section className="go-back-text" onClick={haveAccountToggler}>Go Back to Login</section>
           </div>
         }
       </form>}
