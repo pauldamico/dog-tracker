@@ -57,77 +57,82 @@ export default function DogProfileForm(props) {
   }
 
   return (
-    <div>
+    <div className="profile-dog-update-div">
       <form onSubmit={updateSubmitHandler}>
         <div>
-          <div>
+          <div className="update-div-text">
+          <h3>Name</h3>
+       
             <input
               type="text"
               name="dogName"
               value={updatedProfile.dogName}
               onChange={updateChangeHandler}
             />
+        
           </div>
           <div>
-            <div>
+            <div className="update-div-text">
               <h3>Breed</h3>
-              <section>
+            
                 <input
                   name="breed"
                   type="text"
                   value={updatedProfile.breed}
                   onChange={updateChangeHandler}
                 />
-              </section>
+          
             </div>
-            <div>
+            <div className="update-div-text">
               <h3>Age</h3>
-              <section>
+          
                 <input
                   name="age"
                   type="number"
                   value={updatedProfile.age}
                   onChange={updateChangeHandler}
                 />
-              </section>
+           
             </div>
-            <div>
+            <div className="update-div-text">
               <h3>Weight</h3>
-              <section>
+       
                 <input
                   name="weight"
                   type="number"
                   value={updatedProfile.weight}
                   onChange={updateChangeHandler}
                 />
-              </section>
+         
             </div>
-            <div>
+            <div className="update-div-text">
               <h3>Birthday</h3>
-              <section>
+         
                 <input
                   name="birthday"
                   type="text"
                   value={updatedProfile.birthday}
                   onChange={updateChangeHandler}
                 />
-              </section>
+           
             </div>
-            <div>
+            <div className="update-div-text">
               <h3>Vet Info</h3>
-              <section>
+     
                 <input
                   name="vet"
                   type="text"
                   value={updatedProfile.vet}
                   onChange={updateChangeHandler}
                 />
-              </section>
+       
             </div>
           </div>
         
         </div>
-        <button>Save Info</button>
+        <div className="button-save-info-div">
+        <button >Save Info</button>
+        </div>
       </form>
     </div>
   );
