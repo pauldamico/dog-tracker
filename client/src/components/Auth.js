@@ -38,7 +38,7 @@ export default function Auth(props) {
         {haveAccount ? <button>Login</button> : <button>Sign Up</button>}
         {haveAccount ? <div>
         <section className="login-error">{loginError}</section>
-          <section onClick={haveAccountToggler}>
+          <section className="no-account-text" onClick={haveAccountToggler}>
            
             Don't have an account? Click Here
           </section>

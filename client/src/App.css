@@ -382,6 +382,10 @@ align-items: center;
   
     font-size: 20px;
   }
+  .no-account-text{
+    margin-top: 10px;
+    font-size: 20px;
+  }
   .profile-section{  
     font-size: 15px;
   }
