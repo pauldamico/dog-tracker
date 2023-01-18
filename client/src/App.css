@@ -378,6 +378,9 @@ align-items: center;
   * {
     font-size: 15px;
   }
+  .add-dog-title{
+    font-size: 30px;
+  }
   .profile-title{
   
     font-size: 20px;
@@ -512,7 +515,9 @@ max-width: 300px;
 
 *{
   font-size: 8px;
-
+}
+.add-dog-title{
+  font-size: 30px;
 }
 .profile-div {
   width: auto;

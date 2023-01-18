@@ -46,7 +46,7 @@ export default function DogAddForm(props) {
       <form className="add-profile-from" onSubmit={updateSubmitHandler}>
         <div>
           <div>
-          <h3>Name</h3>
+          <h3 className="add-dog-title">Name</h3>
             <input
               type="text"
               name="dogName"
@@ -56,7 +56,7 @@ export default function DogAddForm(props) {
           </div>
           <div>
             <div>
-              <h3>Breed</h3>
+              <h3 className="add-dog-title">Breed</h3>
               <section>
                 <input
                   name="breed"
@@ -67,7 +67,7 @@ export default function DogAddForm(props) {
               </section>
             </div>
             <div>
-              <h3>Age</h3>
+              <h3 className="add-dog-title">Age</h3>
               <section>
                 <input
                   name="age"
@@ -78,7 +78,7 @@ export default function DogAddForm(props) {
               </section>
             </div>
             <div>
-              <h3>Weight</h3>
+              <h3 className="add-dog-title">Weight</h3>
               <section>
                 <input
                   name="weight"
@@ -89,7 +89,7 @@ export default function DogAddForm(props) {
               </section>
             </div>
             <div>
-              <h3>Birthday</h3>
+              <h3 className="add-dog-title">Birthday</h3>
               <section>
                 <input
                   name="birthday"
@@ -100,7 +100,7 @@ export default function DogAddForm(props) {
               </section>
             </div>
             <div>
-              <h3>Vet Info</h3>
+              <h3 className="add-dog-title">Vet Info</h3>
               <section>
                 <input
                   name="vet"
@@ -115,7 +115,7 @@ export default function DogAddForm(props) {
             
           </div>
         </div>
-        <button>Save Info</button>
+        <button className="add-dog-button">Save Info</button>
       </form>
     </div>
   );
