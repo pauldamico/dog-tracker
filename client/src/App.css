@@ -374,7 +374,8 @@ align-items: center;
   * {
     font-size: 15px;
   }
-  .profile-title{  
+  .profile-title{
+  
     font-size: 20px;
   }
   .profile-section{  
@@ -505,6 +506,8 @@ max-width: 300px;
 }
 .profile-div {
   width: auto;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .profile-div-text{
   display: flex;
