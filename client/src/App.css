@@ -212,7 +212,16 @@ color: white;
 				  -1px -1px 0 #000;
 
 }
-
+.next-medical-appointment-div{
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+}
+.vet-div{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
 
 .auth-form>button{
   margin-top:5%;
