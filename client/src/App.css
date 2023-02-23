@@ -108,13 +108,15 @@ z-index: -100;
 }
 .update-div-text{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;  
   padding: 5%;
+  
 }
 .profile-div-text{
   display: flex;
   justify-content: space-between;
   padding: 5%;
+  align-items: center;
 }
 .update-div-text>input{
   width:50%;
@@ -130,6 +132,7 @@ z-index: -100;
 }
 .dog-profile-text{
   text-align: center;
+  
   grid-column: 1/-1;
   grid-row: 1/-1;
 }
@@ -144,6 +147,7 @@ background-color: rgba(240, 248, 255, 0.156);
   height:75vh;
   display: flex;
   justify-content: left;
+  
 }
 
 
@@ -153,10 +157,12 @@ background-color: rgba(240, 248, 255, 0.156);
   font-size: 50px;
 }
 .profile-section{
+  margin-left: 1rem;
   width: 200px;
+  overflow:auto;
   background-color: white;
   color:black;
-  font-size: 40px;
+  font-size: 25px;
 }
 
 .add-profile-from{
