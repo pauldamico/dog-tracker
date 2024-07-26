@@ -32,7 +32,7 @@ export default function Dog(props) {
      
     <div className="profile-div">
       <div className="profile-wrapper-div">
-    <img className="profile-img" src={enzoscruffy}/>
+    {/* <img className="profile-img" src={enzoscruffy}/> */}
       {updateToggled && (
         <div className="dog-profile-text">
           <div className="profile-div-text">
